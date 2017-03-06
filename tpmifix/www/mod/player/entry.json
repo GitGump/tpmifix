@@ -1,0 +1,17 @@
+{
+	"mod": "player",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "Media player",
+			"description": "One custom media player to play video, audio...",
+			"icon": "player.png"
+		},
+		"zh": {
+			"title": "多媒体播放器",
+			"description": "一款播放器，支持视频、音频等格式。",
+			"icon": "player.png"
+		},
+		"location": "hide"
+	}
+}

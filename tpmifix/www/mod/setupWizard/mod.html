@@ -1,0 +1,132 @@
+<ion-view view-title="{{'SETUP_WIZARD.TITLE' | translate}}" hide-back-button="true"
+hide-nav-bar="true">
+  <ion-content class="gray-bg sw-fullsize" scroll="true">
+    <div class="sw-begin-header">
+      <h4 class="text-center pr50 pl50" translate="SETUP_WIZARD.CONTENT.TIPS.HEADER"></h4>
+    </div>
+    <div class="sw-begin-section center-block pl10 pr10">
+      <button class="button button-full button-positive border-radius-5" translate="SETUP_WIZARD.CONTENT.BTN.BEGIN"
+      ng-click="tpService.linkService.gotoMod('setupWizard-login');"></button>
+    </div>
+  </ion-content>
+</ion-view>
+
+<script id="mod-setupWizard-login.html" type="text/ng-template">
+  <ion-view view-title="{{'SETUP_WIZARD_LOGIN.TITLE' | translate}}" hide-back-button="true">
+    <ion-nav-buttons side="right">
+      <button ng-click="setupWizardLogin.action.jumpToWifi();" ng-disabled="setupWizardLogin.form.$invalid"
+      class="button button-icon" translate="SETUP_WIZARD.CONTENT.BTN.NEXT">
+      </button>
+    </ion-nav-buttons>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ng-form name="setupWizardLogin.form" novalidate>
+        <ion-item class="item-input item-icon-right">
+          <span class="input-label" translate="SETUP_WIZARD_LOGIN.CONTENT.PASSWORD"></span>
+          <input name="loginPassword" type="{{setupWizardLogin.data.local.inputType}}" size="15"
+          maxlength="15" placeholder="{{'SETUP_WIZARD_LOGIN.CONTENT.PASSWORD_HINT' | translate}}"
+          ng-model="setupWizardLogin.data.local.password" ng-change="setupWizardLogin.action.checkLoginPasswordStrength()"
+          check-login-password>
+          <i ng-click="setupWizardLogin.action.switchInputType()" class="icon ion-eye {{setupWizardLogin.data.local.iconColor}}"></i>
+        </ion-item>
+        <div ng-messages='setupWizardLogin.form.loginPassword.$error' ng-show='setupWizardLogin.form.loginPassword.$dirty'>
+          <div ng-message='checkLoginPassword'>
+            <span class="item-alert" translate="ACCOUNT.CONTENT.INVALID_PASSWORD"></span>
+          </div>
+        </div>
+        <div ng-show="!setupWizardLogin.form.$invalid">
+          <span class="item-success" ng-show="setupWizardLogin.data.local.passwordStrength==setupWizardLogin.data.local.CONSTANT.STRONG"
+          translate="ACCOUNT.CONTENT.STRENGTH_STRONG"></span>
+          <span class="item-warning" ng-show="setupWizardLogin.data.local.passwordStrength==setupWizardLogin.data.local.CONSTANT.MIDDLE"
+          translate="ACCOUNT.CONTENT.STRENGTH_MIDDLE"></span>
+          <span class="item-alert" ng-show="setupWizardLogin.data.local.passwordStrength==setupWizardLogin.data.local.CONSTANT.WEAK"
+          translate="ACCOUNT.CONTENT.STRENGTH_WEAK"></span>
+        </div>
+        <h5 class="text-center pl50 pr50 mt50" translate="SETUP_WIZARD_LOGIN.CONTENT.TIPS.INFO"></h5>
+      </ng-form>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-setupWizard-wifi.html" type="text/ng-template">
+  <ion-view view-title="{{'SETUP_WIZARD_WIFI.TITLE' | translate}}" hide-back-button="true">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon" translate="SETUP_WIZARD.CONTENT.BTN.BACK" ng-click="setupWizardWifi.action.jumpToLogin()">
+      </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button ng-disabled="setupWizardWifi.form.$invalid" class="button button-icon"
+      translate="SETUP_WIZARD.CONTENT.BTN.NEXT" ng-click="setupWizardWifi.action.jumpToEnd('setupWizard-end')">
+      </button>
+    </ion-nav-buttons>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ng-form name="setupWizardWifi.form" novalidate>
+        <ion-list>
+          <ion-item class="item-input item-icon-right">
+            <span class="input-label" translate="WIFI.CONTENT.SSID"></span>
+            <input ng-model="setupWizardWifi.data.server.wlan.ssid" name="ssid" type="text"
+            placeholder="{{'WIFI.CONTENT.SSID_HINT' | translate}}" required check-wlan-ssid></input>
+          </ion-item>
+          <div ng-messages='setupWizardWifi.form.ssid.$error' ng-show='setupWizardWifi.form.ssid.$dirty'>
+            <div ng-message='required'>
+              <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+            </div>
+            <div ng-message='checkWlanSSID'>
+              <span class="item-alert" translate="WIFI.CONTENT.INVALID_SSID"></span>
+            </div>
+          </div>
+          <ion-item class="item-input item-icon-right">
+            <span class="input-label" translate="WIFI.CONTENT.PASSWORD"></span>
+            <input ng-model="setupWizardWifi.data.server.wlan.mixed.key" name="password" type="{{setupWizardWifi.data.local.inputType}}"
+            placeholder="{{'WIFI.CONTENT.PASSWORD_HINT' | translate}}" check-wlan-password></input>
+            <i ng-click="setupWizardWifi.action.switchInputType()" class="icon ion-eye {{setupWizardWifi.data.local.iconColor}}"></i>
+          </ion-item>
+          <div ng-messages='setupWizardWifi.form.password.$error' ng-show='setupWizardWifi.form.password.$dirty'>
+            <div ng-message='checkWlanPassword'>
+              <span class="item-alert" translate="WIFI.CONTENT.INVALID_PASSWORD"></span>
+            </div>
+          </div>
+          <label class="item item-select">
+            <span translate="WIFI.CONTENT.BAND"></span>
+            <select ng-model="setupWizardWifi.data.local.band" ng-options="band.name | translate for band in setupWizardWifi.data.local.bands"></select>
+          </label>
+        </ion-list>
+      </ng-form>
+      <h5 class="text-center pl50 pr50 mt50" translate="SETUP_WIZARD_WIFI.CONTENT.TIPS.INFO"></h5>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-setupWizard-end.html" type="text/ng-template">
+  <ion-view view-title="{{'SETUP_WIZARD_END.TITLE' | translate}}" hide-back-button="true">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon" translate="SETUP_WIZARD.CONTENT.BTN.BACK" ng-click="tpService.linkService.gotoMod('setupWizard-wifi')">
+      </button>
+    </ion-nav-buttons>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ion-list>
+        <ion-item class="item item-icon-right">
+          <span class="sw-label" translate="SETUP_WIZARD_END.CONTENT.LOGIN_PASSWORD"></span>
+          <span>{{setupWizardEnd.data.local.loginPassword}}</span>
+          <i ng-click="setupWizardEnd.action.switchLoginPasswd()" class="icon ion-eye" ng-class="{true:'positive'}[setupWizardEnd.data.local.loginPassword!=setupWizardEnd.data.local.CONSTANT.HIDE_PASSWORD]"></i>
+        </ion-item>
+        <ion-item>
+          <span class="sw-label" translate="SETUP_WIZARD_END.CONTENT.WIFI_NAME"></span>
+          <span>{{swShare.backupWifi.server.wlan.ssid}}</span>
+        </ion-item>
+        <ion-item class="item-icon-right">
+          <span class="sw-label" translate="SETUP_WIZARD_END.CONTENT.WIFI_PASSWORD"></span>
+          <span>{{setupWizardEnd.data.local.wifiPassword}}</span>
+          <i ng-click="setupWizardEnd.action.switchWifiPasswd()" class="icon ion-eye" ng-class="{true:'positive'}[setupWizardEnd.data.local.wifiPassword!=setupWizardEnd.data.local.CONSTANT.HIDE_PASSWORD]"></i>
+        </ion-item>
+        <ion-item>
+          <span class="sw-label" translate="SETUP_WIZARD_END.CONTENT.WIFI_BAND"></span>
+          <span>{{setupWizardEnd.data.local.band.name | translate}}</span>
+        </ion-item>
+      </ion-list>
+      <div class="pr10 pl10">
+        <button class="button button-full button-positive border-radius-5" translate="SETUP_WIZARD.CONTENT.BTN.END"
+        ng-click="setupWizardEnd.action.finish();"></button>
+      </div>
+      <h5 class="text-center pl50 pr50 mt20" translate="SETUP_WIZARD_END.CONTENT.TIPS.HEADER"></h5>
+  </ion-view>
+</script>

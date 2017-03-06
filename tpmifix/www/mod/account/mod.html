@@ -1,0 +1,39 @@
+<ion-view view-title="{{'ACCOUNT.TITLE' | translate}}">
+  <ion-nav-buttons side="right">
+    <button ng-disabled="account.form.$invalid" ng-click="action.submit()" class="button button-icon"
+    translate="COMMON.CONTENT.SAVE"></button>
+  </ion-nav-buttons>
+  <ion-content scroll="true" class="gray-bg">
+    <ng-form name="account.form" novalidate>
+      <span class="list-title" translate="ACCOUNT.CONTENT.MODIFY_PASSWORD"></span>
+      <ion-list>
+        <ion-item class="item-input item-icon-right">
+          <span class="input-label" translate="ACCOUNT.CONTENT.OLD_PASSWORD"></span>
+          <input ng-model="data.local.oldPassword" type="{{data.local.oldInputType}}" maxlength="15"
+          placeholder="{{'ACCOUNT.CONTENT.OLD_PASSWORD_HINT' | translate}}"></input>
+          <i ng-click="action.switchOldInputType()" class="icon ion-eye {{data.local.oldIconColor}}"></i>
+        </ion-item>
+        <ion-item class="item-input item-icon-right">
+          <span class="input-label" translate="ACCOUNT.CONTENT.NEW_PASSWORD"></span>
+          <input ng-model="data.local.password" ng-change="action.checkLoginPasswordStrength()"
+          name="password" type="{{data.local.inputType}}" maxlength="15" placeholder="{{'ACCOUNT.CONTENT.NEW_PASSWORD_HINT' | translate}}"
+          check-login-password></input>
+          <i ng-click="action.switchInputType()" class="icon ion-eye {{data.local.iconColor}}"></i>
+        </ion-item>
+        <div ng-messages='account.form.password.$error' ng-show='account.form.password.$dirty'>
+          <div ng-message='checkLoginPassword'>
+            <span class="item-alert" translate="ACCOUNT.CONTENT.INVALID_PASSWORD"></span>
+          </div>
+        </div>
+        <div ng-show="!account.form.$invalid">
+          <span ng-show="data.local.passwordStrength==data.local.STRENGTH.STRONG" class="item-success"
+          translate="ACCOUNT.CONTENT.STRENGTH_STRONG"></span>
+          <span ng-show="data.local.passwordStrength==data.local.STRENGTH.MIDDLE" class="item-warning"
+          translate="ACCOUNT.CONTENT.STRENGTH_MIDDLE"></span>
+          <span ng-show="data.local.passwordStrength==data.local.STRENGTH.WEAK" class="item-alert"
+          translate="ACCOUNT.CONTENT.STRENGTH_WEAK"></span>
+        </div>
+      </ion-list>
+    </ng-form>
+  </ion-content>
+</ion-view>

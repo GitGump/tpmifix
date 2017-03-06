@@ -1,0 +1,36 @@
+{
+	"DEVICE": {
+		"TITLE": "路由器信息",
+		"DESCRIPTION": "路由器的型号，IMEI，MAC 地址和软件版本信息",
+		"CONTENT": {
+			"MODEL": "设备名称",
+			"IMEI": "IMEI",
+			"MEID": "MEID",
+			"MAC_ADDRESS": "MAC 地址",
+			"HARDWARE_VERSION": "硬件版本",
+			"SOFTWARE_VERSION": "软件版本",
+			"NEW_VERSION": "有新版本",
+			"CHECK_UPDATE_LOADING": "正在检测，请稍候...",
+			"NO_NEW_VERSION": "已经是最新版本",
+			"NETWORK_DISCONNECT_ERROR": "无法连接到网络，请检查网络连接并重试",
+			"HAS_NEW_VERSION": "检测到新版本：",
+			"CURRENT_VERSION": "当前版本：",
+			"LATEST_VERSION": "最新版本：",
+			"FIRMWARE_SIZE": "升级包大小：",
+			"RELEASE_NOTE": "更新日志：",
+			"UPDATE_NOW": "现在升级",
+			"UPDATE_LATER": "暂不升级",
+			"CHECK_NETWORK_ERROR": "无法连接升级服务器，请检查网络连接并重试",
+			"CHECK_COMMON_ERROR": "无法获取升级信息，请检查网络连接并重试",
+			"UPGRADE_CONFIRM": "检测到新版本，是否立刻升级？",
+			"UPGRADE_CHECKING": "正在检测，请稍候...",
+			"DOWNLOAD_NEWEST_VERSION": "已经是最新版本",
+			"UPGRADE_DOWNLOADING": "正在下载，请稍候...",
+			"UPGRADE_DOWNLOAD_PERCENT": "已下载：",
+			"UPGRADE_DOWNLOAD_FAIL": "无法完成升级，请重新下载升级包",
+			"UPGRADE_LOADING": "正在升级，请稍候...",
+			"UPGRADE_SUCC": "升级成功！",
+			"UPGRADE_FAIL": "通过云服务器升级失败，请重新尝试"
+		}
+	}
+}

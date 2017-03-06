@@ -1,0 +1,17 @@
+{
+	"mod": "clientList",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "Wi-Fi Users",
+			"description": "Connected devices and mac filter",
+			"icon": ""
+		},
+		"zh": {
+			"title": "已连设备",
+			"description": "已连设备与MAC地址过滤",
+			"icon": ""
+		},
+		"location": "gridMenu"
+	}
+}

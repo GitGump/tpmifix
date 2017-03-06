@@ -1,0 +1,55 @@
+{
+	"SDCARD": {
+		"TITLE": "查看SD卡",
+		"DESCRIPTION": "管理路由器SD卡中的文件，并可分享到社交网络。",
+		"CONTENT": {
+			"ACCESS_MODE": {
+				"WIFI": "无线访问模式",
+				"USB": "USB访问模式"
+			},
+			"SETTING": "设置",
+			"SWITCH_MODE": "切换访问模式",
+			"SWITCH_MODE_PROMPT": "请确保在模式切换过程中并无数据传送，以免数据丢失。",
+			"SHOW_FILE_POSTFIX": "显示文件扩展名",
+			"CLEAR_CACHE": "清理缓存",
+			"CLEAR_CACHE_PROMPT": "确定清理缓存的图片、视频等资源？",
+			"COUNT_CACHE_SIZE": "正在计算...",
+			"NOW_IN_USB_MODE": "USB访问模式下，需通过数据线连接路由器和电脑来查看SD卡的内容。如需通过本App查看，请切换到无线访问模式。",
+			"CONNECTING": "正在访问SD卡...",
+			"CONNECT_FAIL": "未访问到SD卡。",
+			"NO_FILES": "空空如也，赶快上传一个文件吧。",
+			"NOT_READY": "功能未就绪，请稍后重试。",
+			"SELECT_NONE_WARN": "请至少选择一个合法的文件。",
+			"JUST_SUPPORT_MEDIA_TYPE": {
+				"DOWNLOAD": "当前仅支持图片和视频，其他类型的文件无法缓存。",
+				"SAVE": "当前仅支持图片和视频，其他类型的文件无法保存。",
+				"SHARE": "当前仅支持图片，其他类型的文件无法分享。"
+			},
+			"CREATE_DIRECTORY": "新建文件夹",
+			"CREATE_DIRECTORY_PROMPT": "请输入新文件夹名字",
+			"CREATE_DIRECTORY_INVALID": "文件夹名字不能为空或包含 /\\:*?\"<>| 等特殊字符",
+			"CREATE_DIRECTORY_FAIL": "创建新文件夹失败！",
+			"CREATE_DIRECTORY_FAIL_EXIST_FILE": "已存在同名文件夹，创建新文件夹失败！",
+			"UPLOAD_OK": "成功上传 ",
+			"UPLOAD_FAIL": "无法上传 ",
+			"UPLOAD_PERCENT_FULL": "正在上传 {{count}}/{{total}}，进度 {{percent}}%",
+			"UPLOAD_PERCENT": {
+				"PART1": "正在上传 ",
+				"PART2": "，进度 "
+			},
+			"DOWNLOAD_OK": "成功缓存 ",
+			"DOWNLOAD_FAIL": "无法缓存 ",
+			"DOWNLOAD_PERCENT_FULL": "正在缓存 {{count}}/{{total}}，进度 {{percent}}%",
+			"DOWNLOAD_PERCENT": {
+				"PART1": "正在缓存 ",
+				"PART2": "，进度 "
+			},
+			"SAVE_OK": "成功保存 ",
+			"SAVE_OK_TO_ALBUM": " 已被保存到相册。",
+			"SAVE_FAIL": "无法保存 ",
+			"DELETE_FAIL": "无法删除 ",
+			"DELETE_DIRECTORY_PROMPT": "请确认该文件夹不包含任何文件，否则无法删除。",
+			"ENCODING_PROMPT": "当前仅支持UTF-8编码。"
+		}
+	}
+}

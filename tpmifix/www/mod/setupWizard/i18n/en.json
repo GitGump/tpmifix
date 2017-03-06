@@ -1,0 +1,53 @@
+{
+	"SETUP_WIZARD": {
+		"TITLE": "Setup Wizard",
+		"DESCRIPTION": "Setup login password and Wi-Fi",
+		"CONTENT": {
+			"TIPS": {
+				"HEADER": "You are about to enter the setup wizard before you use the router."
+			},
+			"BTN": {
+				"BEGIN": "Begin setup",
+				"BACK": "Back",
+				"NEXT": "Next",
+				"END": "Confirm"
+			}
+		}
+	},
+	"SETUP_WIZARD_LOGIN": {
+		"TITLE": "Setup login password",
+		"DESCRIPTION": "Setup login password",
+		"CONTENT": {
+			"TIPS": {
+				"HEADER": "Setup your login password",
+				"INFO": "Please remember this password, if forgotten, set the router to restore the factory settings."
+			},
+			"PASSWORD": "Password",
+			"PASSWORD_HINT": "Enter the password."
+		}
+	},
+	"SETUP_WIZARD_WIFI": {
+		"TITLE": "Setup Wi-Fi",
+		"DESCRIPTION": "Setup Wi-Fi",
+		"CONTENT": {
+			"TIPS": {
+				"HEADER": "Setup your Wi-Fi",
+				"INFO": "Please setup your Wi-Fi name and password, which is convient for devices' connection."
+			}
+		}
+	},
+	"SETUP_WIZARD_END": {
+		"TITLE": "Finish setup",
+		"DESCRIPTION": "Setup info",
+		"CONTENT": {
+			"TIPS": {
+				"HEADER": "Setup are ready to complete.",
+				"END": "Saved successfully. The Wi-Fi connection may be ended, please reconnect to the router."
+			},
+			"LOGIN_PASSWORD": "Login password",
+			"WIFI_NAME": "Wi-Fi name",
+			"WIFI_PASSWORD": "Wi-Fi password",
+			"WIFI_BAND": "Wi-Fi band"
+		}
+	}
+}

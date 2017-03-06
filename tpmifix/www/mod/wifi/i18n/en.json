@@ -1,0 +1,20 @@
+{
+	"WIFI": {
+		"TITLE": "My Wi-Fi",
+		"DESCRIPTION": "Wi-Fi setting",
+		"CONTENT": {
+			"SSID": "Name",
+			"SSID_HINT": "Enter Wi-Fi name",
+			"INVALID_SSID": "Wi-Fi name is incorrect! It's recommended that the name contains characters using letters, digits and symbols.",
+			"PASSWORD": "Password",
+			"PASSWORD_HINT": "Enter Wi-Fi password",
+			"INVALID_PASSWORD": "Wi-Fi password is incorrect! It's recommended that the password contains at least 8 characters using letters, digits and symbols.",
+			"BAND": "Band",
+			"BAND_2": "2.4GHz",
+			"BAND_5": "5GHz",
+			"HIDE_SSID": "Hide Wi-Fi",
+			"RESTART_PROMPT": "Your settings will take effect once the Wi-Fi is restarted. Do you want to restart it now?",
+			"RESTARTING": "Wi-Fi restarting..."
+		}
+	}
+}

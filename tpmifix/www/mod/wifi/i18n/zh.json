@@ -1,0 +1,20 @@
+{
+	"WIFI": {
+		"TITLE": "无线设置",
+		"DESCRIPTION": "无线设置页面",
+		"CONTENT": {
+			"SSID": "无线名称",
+			"SSID_HINT": "请设置无线网络名称",
+			"INVALID_SSID": "无线网络名称格式错误！最好设置为字母、数字和符号的组合",
+			"PASSWORD": "无线密码",
+			"PASSWORD_HINT": "请设置无线网络密码",
+			"INVALID_PASSWORD": "无线网络密码格式错误！最好设置为至少8位的字母、数字和符号的组合",
+			"BAND": "无线频段",
+			"BAND_2": "2.4GHz",
+			"BAND_5": "5GHz",
+			"HIDE_SSID": "隐藏无线网络",
+			"RESTART_PROMPT": "您的配置将在无线网络重启后生效，是否立刻重启？",
+			"RESTARTING": "无线网络正在重启..."
+		}
+	}
+}

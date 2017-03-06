@@ -1,0 +1,76 @@
+.footer-bar-higher {
+  height: 65px;
+}
+
+.sms-bottom {
+  bottom: 65px;
+}
+
+.sms-checkbox {
+  position: absolute;
+  top: 19px;
+  left: 5px;
+  z-index: 1;
+}
+
+.sms-checkbox-show {
+  transform: translate3d(47px, 0, 0);
+  transform: translate3d(47px, 0, 0);
+  -ms-transform: translate3d(47px, 0, 0);
+  /* IE 9 */
+  -moz-transform: translate3d(47px, 0, 0);
+  /* Firefox */
+  -webkit-transform: translate3d(47px, 0, 0);
+  /* Safari 和 Chrome */
+  -o-transform: translate3d(47px, 0, 0);
+  /* Opera */
+}
+
+.sms-from {
+  width: 50%;
+  display: inline-block;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 1.2em;
+}
+
+.sms-middle {
+  width: 98%;
+}
+
+.sms-digest {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sms-content {
+  font-size: 16px;
+  line-height: 20px;
+  resize: none;
+}
+
+.sms-time {
+  width: 50%;
+  text-align: right;
+  display: inline-block;
+  color: grey;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.sms-receiver {
+  width: 5%;
+  font-size: 0.9em;
+}
+
+.sms-grey {
+  color: #666;
+}
+
+.sms-no {
+  color: #A9A9A9;
+  height: 100px;
+  line-height: 100px;
+}

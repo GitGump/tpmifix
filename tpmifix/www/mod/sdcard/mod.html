@@ -1,0 +1,296 @@
+<ion-view view-title="{{'SDCARD.TITLE' | translate}}" hide-back-button="true">
+  <ion-nav-title>
+    <div ng-if="!sdcard.data.local.isEditing">
+      <span ng-if="ftpPathManager.isAtFtpHomePath()" translate="SDCARD.TITLE"></span>
+      <span ng-if="!ftpPathManager.isAtFtpHomePath()">{{ftpPathManager.getCurPathName()}}</span>
+      <span ng-if="sdcard.data.local.setting.accessMode.type==sdcardConstant.ACCESS_MODE.WIFI && sdcard.data.local.connectStatus==sdcardConstant.CONNECT_STATUS.CONNECTED && fileListManager.getAll().length"
+      class="button-small">{{" (" + fileListManager.getAll().length + ")"}}</span>
+    </div>
+    <div ng-if="sdcard.data.local.isEditing">
+      <span>{{(sdcard.data.local.selectedCount)}}</span>
+      <span class="button-small">{{"/" + fileListManager.getAll().length}}</span>
+    </div>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button ng-if="!sdcard.data.local.isEditing" class="button back-button button-clear header-item"
+    ng-click="sdcard.action.goBack()">
+      <i class="icon" ng-class="{true:'ion-android-arrow-back', false:'ion-ios-arrow-back'}[tpService.serviceValue.ionicPlatform.isAndroid]"></i>
+    </button>
+    <div ng-if="sdcard.data.local.setting.accessMode.type==sdcardConstant.ACCESS_MODE.WIFI && sdcard.data.local.connectStatus==sdcardConstant.CONNECT_STATUS.CONNECTED && sdcard.data.local.isEditing">
+      <button class="button button-icon ion-ios-checkmark-outline" ng-class="{true:'ion-ios-checkmark-outline', false:'ion-ios-circle-outline'}[sdcard.data.local.isAllSelected]"
+      ng-click="sdcard.action.switchSelectAll()">
+      </button>
+    </div>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button ng-if="ftpPathManager.isAtFtpHomePath() && !sdcard.data.local.isEditing"
+    class="button button-icon" ng-click="sdcard.action.settingViewer.open()" translate="SDCARD.CONTENT.SETTING">
+    </button>
+    <div ng-if="sdcard.data.local.setting.accessMode.type==sdcardConstant.ACCESS_MODE.WIFI && sdcard.data.local.connectStatus==sdcardConstant.CONNECT_STATUS.CONNECTED">
+      <button ng-if="sdcard.data.local.isEditing" class="button button-icon" ng-click="sdcard.action.closeEdit()"
+      translate="COMMON.CONTENT.CANCEL">
+      </button>
+      <button ng-if="!sdcard.data.local.isEditing && fileListManager.getAll().length!=0"
+      class="button button-icon" ng-click="sdcard.action.openEdit()" translate="COMMON.CONTENT.EDIT">
+      </button>
+    </div>
+  </ion-nav-buttons>
+  <ion-content class="gray-bg padding-top" ng-class="{true:'has-footer', false:''}[sdcard.data.local.setting.accessMode.type==sdcardConstant.ACCESS_MODE.WIFI && sdcard.data.local.connectStatus==sdcardConstant.CONNECT_STATUS.CONNECTED]"
+  scroll="true">
+    <!--segmented buttons-->
+    <!--<div class="button-bar button-small button-outline">-->
+    <!--<a class="button" translate="SDCARD.CONTENT.ACCESS_MODE.WIFI"></a>-->
+    <!--<a class="button" translate="SDCARD.CONTENT.ACCESS_MODE.USB"></a>-->
+    <!--</div>-->
+    <!--content: wifi mode-->
+    <!--ionRefresher must be immediate child of ion-content or ion-scroll-->
+    <ion-refresher ng-if="sdcard.data.local.setting.accessMode.type==sdcardConstant.ACCESS_MODE.WIFI"
+    pulling-text="{{'COMMON.CONTENT.PULL_TO_REFRESH' | translate}}" on-refresh="sdcard.action.refresh()">
+    </ion-refresher>
+    <div ng-if="sdcard.data.local.setting.accessMode.type==sdcardConstant.ACCESS_MODE.WIFI">
+      <div ng-if="sdcard.data.local.connectStatus==sdcardConstant.CONNECT_STATUS.CONNECTED">
+        <!--file list-->
+        <ion-list ng-if="fileListManager.getAll().length!=0" can-swipe="!sdcard.data.local.isEditing">
+          <ion-item class="sdcard-list-item" ng-repeat="item in fileListManager.getAll()">
+            <sdcard-checkbox show="sdcard.data.local.isEditing" checked="fileListManager.getAll($index).checked"
+            all-checked="sdcard.action.isAllSelected()">
+              <div class="vertical-middle" ng-click="sdcard.action.go($index)">
+                <div ng-if="item.thumbnail" class="inline">
+                  <thumbnail ng-if="item.mediaType == sdcardConstant.MEDIA_TYPE.IMAGE" file-type="image"
+                  source="{{item.thumbnail}}" class="sdcard-avatar-img"></thumbnail>
+                  <thumbnail ng-if="item.mediaType == sdcardConstant.MEDIA_TYPE.VIDEO" file-type="image"
+                  source="{{item.thumbnail}}" class="sdcard-avatar-img"></thumbnail>
+                  <thumbnail ng-if="item.mediaType == sdcardConstant.MEDIA_TYPE.APPLICATION" file-type="pdf"
+                  source="{{item.thumbnail}}" class="sdcard-avatar-img"></thumbnail>
+                </div>
+                <div ng-if="!item.thumbnail" class="inline">
+                  <img class="sdcard-avatar-img" ng-src="{{item.avatar}}">
+                </div>
+                <div class="inline sdcard-avatar-content">
+                  <h2 ng-if="sdcard.data.local.setting.showFilePostfix">{{item.name}}</h2>
+                  <h2 ng-if="!sdcard.data.local.setting.showFilePostfix">{{item.nameWithoutPostfix}}</h2>
+                  <p class="inline sdcard-list-item-p-left">{{item.modifiedDate}}</p>
+                  <p class="inline sdcard-list-item-p-right">{{item.sizeHumanReadable}}</p>
+                </div>
+                <div class="inline" ng-class="{true:'item-icon-right', false:''}[item.type==sdcardConstant.FILE_TYPE.DIR]">
+                  <i ng-if="item.type==sdcardConstant.FILE_TYPE.DIR" class="icon ion-chevron-right"></i>
+                </div>
+              </div>
+            </sdcard-checkbox>
+            <ion-option-button ng-if="item.type==sdcardConstant.FILE_TYPE.FILE && item.mediaType==sdcardConstant.MEDIA_TYPE.IMAGE"
+            class="button-balanced" ng-click="sdcard.action.share($index)" translate="COMMON.CONTENT.SHARE"></ion-option-button>
+            <ion-option-button ng-if="item.type==sdcardConstant.FILE_TYPE.FILE && (item.mediaType==sdcardConstant.MEDIA_TYPE.IMAGE || item.mediaType==sdcardConstant.MEDIA_TYPE.VIDEO)"
+            class="button-positive" ng-click="sdcard.action.save($index)" translate="COMMON.CONTENT.SAVE"></ion-option-button>
+            <ion-option-button class="button-assertive" ng-click="sdcard.action.delete($index)"
+            translate="COMMON.CONTENT.DELETE"></ion-option-button>
+          </ion-item>
+        </ion-list>
+        <!--no content-->
+        <p ng-if="fileListManager.getAll().length==0" class="list-info text-center" translate="SDCARD.CONTENT.NO_FILES"></p>
+      </div>
+      <div ng-if="sdcard.data.local.connectStatus==sdcardConstant.CONNECT_STATUS.DISCONNECTED">
+        <!--ftp connect fail-->
+        <p class="list-alert text-center" translate="SDCARD.CONTENT.CONNECT_FAIL"></p>
+      </div>
+    </div>
+    <!--content: usb mode-->
+    <div ng-if="sdcard.data.local.setting.accessMode.type==sdcardConstant.ACCESS_MODE.USB && sdcard.data.local.connectStatus!==sdcardConstant.CONNECT_STATUS.CONNECTING">
+      <p class="list-info" translate="SDCARD.CONTENT.NOW_IN_USB_MODE"></p>
+    </div>
+    <!--content: connecting status, don't care mode-->
+    <div ng-if="sdcard.data.local.connectStatus==sdcardConstant.CONNECT_STATUS.CONNECTING">
+      <!--ftp connecting-->
+      <p class="list-info text-center" translate="COMMON.CONTENT.LOADING"></p>
+    </div>
+  </ion-content>
+  <!--footer, show when in wifi mode-->
+  <ion-footer-bar ng-if="sdcard.data.local.setting.accessMode.type==sdcardConstant.ACCESS_MODE.WIFI && sdcard.data.local.connectStatus==sdcardConstant.CONNECT_STATUS.CONNECTED"
+  align-title="center" class="bar-stable">
+    <!--not editing-->
+    <div ng-if="!sdcard.data.local.isEditing" class="row row-no-padding">
+      <div class="col text-center button button-clear" ng-click="sdcard.action.create()"
+      translate="SDCARD.CONTENT.CREATE_DIRECTORY"></div>
+      <div class="col text-center button button-clear" ng-click="sdcard.action.upload()"
+      translate="COMMON.CONTENT.UPLOAD"></div>
+    </div>
+    <!--is editing-->
+    <div ng-if="sdcard.data.local.isEditing" class="row row-no-padding">
+      <div class="col text-center button button-clear" ng-click="sdcard.action.share()"
+      translate="COMMON.CONTENT.SHARE"></div>
+      <div class="col text-center button button-clear" ng-click="sdcard.action.save()"
+      translate="COMMON.CONTENT.SAVE"></div>
+      <!--<div class="col text-center button button-clear" ng-click="sdcard.action.move()" translate="SDCARD.CONTENT.MOVE"></div>-->
+      <div class="col text-center button button-clear" ng-click="sdcard.action.delete()"
+      translate="COMMON.CONTENT.DELETE"></div>
+    </div>
+  </ion-footer-bar>
+</ion-view>
+
+<!-- inner html template. please define an unique id. -->
+<script id="mod-sdcard-createDirectory.html" type="text/ng-template">
+  <div>
+    <ng-form name="sdcardCreateDirectory.form" novalidate>
+      <div>
+        <span translate="SDCARD.CONTENT.CREATE_DIRECTORY_PROMPT"></span>
+      </div>
+      <div>
+        <input ng-model="sdcard.data.local.createDirectoryName" name="directory" type="text"
+        required check-directory-name></input>
+      </div>
+      <div ng-show="sdcardCreateDirectory.form.directory.$dirty" ng-messages="sdcardCreateDirectory.form.directory.$error">
+        <div ng-message="required">
+          <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+        </div>
+        <div ng-message="checkDirectoryName">
+          <span class="item-alert" translate="SDCARD.CONTENT.CREATE_DIRECTORY_INVALID"></span>
+        </div>
+      </div>
+    </ng-form>
+  </div>
+</script>
+
+<!-- inner html template. please define an unique id. -->
+<script id="mod-sdcard-settingViewer.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-dark">
+      <button class="button back-button button-clear header-item" ng-click="sdcard.action.settingViewer.cancel()">
+        <i class="icon" ng-class="{true:'ion-android-arrow-back', false:'ion-ios-arrow-back'}[tpService.serviceValue.ionicPlatform.isAndroid]"></i>
+      </button>
+      <h1 class="title" translate="SDCARD.CONTENT.SETTING"></h1>
+      <button ng-disabled="tpUtil.diffUtil.isAllEqual(sdcard.data.local.settingTemp, sdcard.data.local.settingBak)"
+      class="button button-clear" ng-click="sdcard.action.settingViewer.save()"
+      translate="COMMON.CONTENT.CONFIRM"></button>
+    </ion-header-bar>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <span class="list-title" translate="SDCARD.CONTENT.SWITCH_MODE"></span>
+      <ion-list>
+        <ion-radio name="accessMode" ng-model="sdcard.data.local.settingTemp.accessMode"
+        ng-value="accessMode" ng-checked="sdcard.data.local.settingTemp.accessMode.type==$index"
+        ng-repeat="accessMode in sdcard.data.local.settingViewer.accessModes">
+          <span translate="{{accessMode.name}}"></span>
+        </ion-radio>
+        <span class="list-alert" translate="SDCARD.CONTENT.SWITCH_MODE_PROMPT"></span>
+      </ion-list>
+      <ion-list>
+        <ion-toggle toggle-class="toggle-positive" ng-model="sdcard.data.local.settingTemp.showFilePostfix"
+        ng-change="sdcard.action.settingViewer.showFilePostfix()">
+          <span translate="SDCARD.CONTENT.SHOW_FILE_POSTFIX"></span>
+        </ion-toggle>
+        <ion-item ng-click="sdcard.action.settingViewer.clearCache()">
+          <span class="assertive" translate="SDCARD.CONTENT.CLEAR_CACHE"></span>
+          <span class="item-note">{{sdcard.data.local.setting.cacheSize}}</span>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<!-- inner html template. please define an unique id. -->
+<script id="mod-sdcard-imageViewer.html" type="text/ng-template">
+  <ion-modal-view class="sdcard-fullsize" ng-class="sdcard.data.local.imageViewer.background">
+    <ion-header-bar ng-hide="sdcard.data.local.imageViewer.background=='sdcard-bg-black'"
+    class="bar bar-header bar-dark">
+      <button class="button back-button button-clear header-item" ng-click="sdcard.action.imageViewer.close()">
+        <i class="icon" ng-class="{true:'ion-android-arrow-back', false:'ion-ios-arrow-back'}[tpService.serviceValue.ionicPlatform.isAndroid]"></i>
+      </button>
+      <h1 class="title">
+        <span ng-if="sdcard.data.local.setting.showFilePostfix">{{fileListManager.getImage(sdcard.data.local.imageViewer.index).name}}</span>
+        <span ng-if="!sdcard.data.local.setting.showFilePostfix">{{fileListManager.getImage(sdcard.data.local.imageViewer.index).nameWithoutPostfix}}</span>
+      </h1>
+      <button class="button button-clear header-item" disabled>
+        {{(sdcard.data.local.imageViewer.index + 1)}}<span class="button-small">{{"/" + fileListManager.getImage().length}}</span>
+      </button>
+    </ion-header-bar>
+    <ion-slide-box class="sdcard-imageViewer-slidebox" ng-if="sdcard.data.local.imageViewer.images.length"
+    show-pager="false" on-slide-changed="sdcard.action.imageViewer.slide($index)"
+    active-slide="sdcard.data.local.imageViewer.index">
+      <ion-slide class="sdcard-imageViewer-slide" ng-repeat="image in sdcard.data.local.imageViewer.images">
+        <ion-scroll class="sdcard-imageViewer-scroll" ng-click="sdcard.action.imageViewer.click()"
+        delegate-handle="scrollHandle{{$index}}" on-scroll="sdcard.action.imageViewer.scroll()"
+        scroll="true" overflow-scroll="false" direction="xy" scrollbar-x="false"
+        scrollbar-y="false" zooming="true" min-zoom="{{sdcard.data.local.imageViewer.zoomMin}}"
+        max-zoom="{{sdcard.data.local.imageViewer.zoomMax}}">
+          <div class="sdcard-imageViewer-image" style="background-image: url( {{image.localPath}} )"></div>
+        </ion-scroll>
+      </ion-slide>
+    </ion-slide-box>
+    <ion-footer-bar align-title="center" class="bar-stable" ng-hide="sdcard.data.local.imageViewer.background=='sdcard-bg-black'">
+      <div class="row row-no-padding">
+        <div class="col text-center button button-icon ion-trash-a" ng-click="sdcard.action.imageViewer.delete()"></div>
+        <div class="col text-center button button-icon ion-ios-download" ng-click="sdcard.action.imageViewer.save()"></div>
+        <div class="col text-center button button-icon ion-share" ng-click="sdcard.action.imageViewer.share()"></div>
+      </div>
+    </ion-footer-bar>
+  </ion-modal-view>
+</script>
+
+<!-- inner html template. please define an unique id. -->
+<script id="mod-sdcard-textViewer.html" type="text/ng-template">
+  <ion-modal-view class="sdcard-fullsize">
+    <ion-header-bar class="bar bar-header bar-dark">
+      <button class="button back-button button-clear header-item" ng-click="sdcard.action.textViewer.close()">
+        <i class="icon" ng-class="{true:'ion-android-arrow-back', false:'ion-ios-arrow-back'}[tpService.serviceValue.ionicPlatform.isAndroid]"></i>
+      </button>
+      <h1 class="title">
+        <span ng-if="sdcard.data.local.setting.showFilePostfix">{{sdcard.data.local.textViewer.title}}</span>
+        <span ng-if="!sdcard.data.local.setting.showFilePostfix">{{sdcard.data.local.textViewer.titleWithoutPostfix}}</span>
+      </h1>
+      <div class="buttons">
+        <button class="button button-icon ion-trash-a" ng-click="sdcard.action.textViewer.delete()"></button>
+        <!--<button class="button button-icon ion-ios-download-outline" ng-click="sdcard.action.textViewer.save()"></button>-->
+        <button class="button button-icon ion-upload" ng-click="sdcard.action.textViewer.saveEditAndUpload()"></button>
+        <!--<button class="button button-icon ion-share" ng-click="sdcard.action.textViewer.share()"></button>-->
+      </div>
+    </ion-header-bar>
+    <ion-content class="sdcard-textViewer" scroll="true" scrollbar-y="false" has-bouncing="false">
+      <textarea class="sdcard-textViewer-textarea" ng-model="sdcard.data.local.textViewer.content"></textarea>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<!-- inner html template. please define an unique id. -->
+<script id="mod-sdcard-applicationViewer.html" type="text/ng-template">
+  <ion-modal-view class="sdcard-fullsize">
+    <ion-header-bar class="bar bar-header bar-dark">
+      <button class="button back-button button-clear header-item icon" ng-click="sdcard.action.applicationViewer.close()">
+        <i class="icon" ng-class="{true:'ion-android-arrow-back', false:'ion-ios-arrow-back'}[tpService.serviceValue.ionicPlatform.isAndroid]"></i>
+      </button>
+      <!--FIXME: currentPage will not show right when reopen modal-->
+      <!--<h1 class="title">{{sdcard.data.local.applicationViewer.title + " (" + sdcard.data.local.applicationViewer.currentPage + "/" + sdcard.data.local.applicationViewer.pageCount + ")"}}</h1>-->
+      <h1 class="title">
+        <span ng-if="sdcard.data.local.setting.showFilePostfix">{{sdcard.data.local.applicationViewer.title}}</span>
+        <span ng-if="!sdcard.data.local.setting.showFilePostfix">{{sdcard.data.local.applicationViewer.titleWithoutPostfix}}</span>
+      </h1>
+      <div class="buttons">
+        <button class="button button-icon ion-trash-a" ng-click="sdcard.action.applicationViewer.delete()"></button>
+      </div>
+    </ion-header-bar>
+    <ion-content class="gray-bg" scroll="true" overflow-scroll="false" direction="xy"
+    scrollbar-x="true" scrollbar-y="true" zooming="false">
+      <pdf-viewer delegate-handle="pdfViewer" url="" scale="page-fit" show-toolbar="false"
+      class="sdcard-applicationViewer-pdfViewer">
+      </pdf-viewer>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="bar-stable">
+      <div class="row row-no-padding">
+        <div class="col text-center button button-icon ion-ios-arrow-left" ng-click="sdcard.action.applicationViewer.prev()"></div>
+        <div class="col text-center button button-icon ion-ios-arrow-right" ng-click="sdcard.action.applicationViewer.next()"></div>
+        <div class="col text-center button button-icon ion-ios-minus-outline" ng-click="sdcard.action.applicationViewer.zoomOut()"></div>
+        <div class="col text-center button button-icon ion-ios-plus-outline" ng-click="sdcard.action.applicationViewer.zoomIn()"></div>
+        <div class="col text-center button button-clear" ng-click="sdcard.action.applicationViewer.zoomTo()">100%</div>
+        <div class="col text-center button button-icon ion-arrow-shrink" ng-click="sdcard.action.applicationViewer.fit()"></div>
+      </div>
+    </ion-footer-bar>
+  </ion-modal-view>
+</script>
+
+<!-- inner html template. please define an unique id. -->
+<script id="mod-sdcard-progress.html" type="text/ng-template">
+  <div class="h110">
+    <span>{{sdcard.data.local.curProgress.part1 + sdcard.data.local.curProgress.count + "/" + sdcard.data.local.curProgress.total +
+      sdcard.data.local.curProgress.part2 + sdcard.data.local.curProgress.percent + "%"}}</span>
+    <progress class="w200" ng-value="sdcard.data.local.curProgress.percent" max="100"></progress>
+    <button class="button button-full button-assertive mb-5" ng-click="sdcard.action.cancel()"
+    translate="COMMON.CONTENT.CANCEL"></button>
+  </div>
+</script>

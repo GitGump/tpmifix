@@ -1,0 +1,20 @@
+{
+	"ACCOUNT": {
+		"TITLE": "Login Account",
+		"DESCRIPTION": "Login Account page",
+		"CONTENT": {
+			"MODIFY_PASSWORD": "Modify login password",
+			"OLD_PASSWORD": "Current",
+			"OLD_PASSWORD_HINT": "Enter current password",
+			"INCORRECT_OLD_PASSWORD": "Incorrect current password.",
+			"NEW_PASSWORD": "New",
+			"NEW_PASSWORD_HINT": "Enter new password",
+			"INVALID_PASSWORD": "New password must be 6 to 15 characters long, including letters, numbers, dashes and underlines.",
+			"STRENGTH_STRONG": "Password strength: strong",
+			"STRENGTH_MIDDLE": "Password strength: middle",
+			"STRENGTH_WEAK": "Password strength: weak",
+			"MODIFY_OK": "Modify password successfully.",
+			"MODIFY_FAIL": "Failed to modify password, please try again later."
+		}
+	}
+}

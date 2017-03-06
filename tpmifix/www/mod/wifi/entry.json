@@ -1,0 +1,17 @@
+{
+	"mod": "wifi",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "My Wi-Fi",
+			"description": "Wi-Fi setting",
+			"icon": "wifi.png"
+		},
+		"zh": {
+			"title": "无线设置",
+			"description": "无线设置",
+			"icon": "wifi.png"
+		},
+		"location": "sideMenu"
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"DEVICE": {
+		"TITLE": "Router Info",
+		"DESCRIPTION": "Router's name, IMEI, MAC address and software version",
+		"CONTENT": {
+			"MODEL": "Model",
+			"IMEI": "IMEI",
+			"MEID": "MEID",
+			"MAC_ADDRESS": "MAC address",
+			"HARDWARE_VERSION": "Hardware version",
+			"SOFTWARE_VERSION": "Firmware version",
+			"NEW_VERSION": "New version!",
+			"CHECK_UPDATE_LOADING": "Checking new updates...",
+			"NO_NEW_VERSION": "Your current firmware is up to date.",
+			"NETWORK_DISCONNECT_ERROR": "Can not connect to the network. Please try again later.",
+			"HAS_NEW_VERSION": "New firmware version alailable: ",
+			"CURRENT_VERSION": "Current version: ",
+			"LATEST_VERSION": "Latest version: ",
+			"FIRMWARE_SIZE": "Firmware size: ",
+			"RELEASE_NOTE": "Release note: ",
+			"UPDATE_NOW": "Update now",
+			"UPDATE_LATER": "Later",
+			"CHECK_NETWORK_ERROR": "Cannot connect to the cloud server, please check the network and try again.",
+			"CHECK_COMMON_ERROR": "Failed to get upgrade information, please check the network and try again.",
+			"UPGRADE_CONFIRM": "New firmware version is available. Do you want to upgrade now?",
+			"UPGRADE_CHECKING": "Checking...",
+			"DOWNLOAD_NEWEST_VERSION": "Your current firmware is up to date.",
+			"UPGRADE_DOWNLOADING": "Downloading...",
+			"UPGRADE_DOWNLOAD_PERCENT": "Downloaded: ",
+			"UPGRADE_DOWNLOAD_FAIL": "Unable to update. Please download the firmware again.",
+			"UPGRADE_LOADING": "Upgrading...",
+			"UPGRADE_SUCC": "Upgrade success!",
+			"UPGRADE_FAIL": "Upgrade failed, please try again later."
+		}
+	}
+}

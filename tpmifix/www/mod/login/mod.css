@@ -1,0 +1,10 @@
+.password-pic {
+  width: 20px;
+  height: auto;
+}
+
+.password-strength {
+  width: 50px;
+  height: auto;
+  padding: 5px 10px 0 0;
+}

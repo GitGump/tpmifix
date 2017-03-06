@@ -1,0 +1,17 @@
+{
+	"mod": "login",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "Login",
+			"description": "Login page",
+			"icon": "icon ion-happy"
+		},
+		"zh": {
+			"title": "登录",
+			"description": "登录页面",
+			"icon": "icon ion-happy"
+		},
+		"location": "hide"
+	}
+}

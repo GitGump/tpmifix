@@ -1,0 +1,124 @@
+{
+	"NETWORK": {
+		"TITLE": "Network",
+		"DESCRIPTION": "Wan settings and pin code",
+		"CONTENT": {
+			"DIALUP_TYPE": "Dial-up type",
+			"CONNECT": "Connect",
+			"MANUAL": "Manual",
+			"AUTO": "Auto",
+			"CONNECT_FAIL": "Unable to connect to the network! Please try again later.",
+			"DATA_ROAMING": "Data roaming",
+			"NETWORK_MODE": "Network mode",
+			"2G_ONLY": "2G Only",
+			"3G_ONLY": "3G Only",
+			"2G_3G": "2G and 3G (3G Preferred)",
+			"4G_ONLY": "4G Only",
+			"4G_PREFER": "4G Preferred",
+			"APN_MANAGEMENT": "Apn management",
+			"PIN_MANAGEMENT": "PIN management",
+			"VERIFY_SIM_CARD": "Please verified sim card firstly",
+			"DETECT_SIM_CARD_ERROR": "Unable to detect SIM card",
+			"SIM_CARD_ERROR": "SIM card error",
+			"SIM_CARD_BLOCKED": "SIM Card Blocked",
+			"DATA_LIMIT_EXCEED": "Data Usage has exceeded the limit. Network disconnected.",
+			"TIME_LIMIT_EXCEED": "Time Usage has exceeded the limit. Network disconnected."
+		}
+	},
+	"NETWORK-DIALUP_TYPE": {
+		"TITLE": "Dial-up Type",
+		"DESCRIPTION": "Dial-up type select",
+		"CONTENT": {
+			"MANUAL": "Manual",
+			"SET_MANUAL_FAIL": "Unable to set Manual mode.",
+			"AUTO": "Auto",
+			"SET_AUTO_FAIL": "Unable to set Auto mode."
+		}
+	},
+	"NETWORK-NETWORK_MODE": {
+		"TITLE": "Network Mode",
+		"DESCRIPTION": "Network mode select",
+		"CONTENT": {
+			"2G_ONLY": "2G Only",
+			"3G_ONLY": "3G Only",
+			"2G_3G": "2G and 3G (3G Preferred)",
+			"4G_ONLY": "4G Only",
+			"4G_PREFER": "4G Preferred"
+		}
+	},
+	"NETWORK-APN_MANAGE": {
+		"TITLE": "APN Management",
+		"DESCRIPTION": "APN management",
+		"CONTENT": {
+			"DEFAULT": "(Default)",
+			"SELECT_APN_ERROR": "Unable to select APN.",
+			"TOP_NUMBER_WARNING": "You can only create up to 8 profiles.",
+			"DELETE_APN_CONFIRM": "Are you sure you want to delete this APN?"
+		}
+	},
+	"NETWORK-ADD_APN": {
+		"TITLE": "APN Management",
+		"DESCRIPTION": "APN Management",
+		"CONTENT": {
+			"CARRIER": "Carrier name",
+			"ENTER_CARRIER": "Enter carrier name",
+			"APN_TYPE": "APN type",
+			"STATIC": "Static",
+			"DYNAMIC": "Dynamic",
+			"APN": "APN",
+			"ENTER_APN": "Enter APN",
+			"USERNAME": "Username",
+			"ENTER_USERNAME": "Enter username",
+			"PASSWORD": "Password",
+			"ENTER_PASSWORD": "Enter password",
+			"SET_APN_ERROR": "Unable to set APN.",
+			"PROFILE_EXIST": "The profile name already exists. Please enter a different one.",
+			"PROFILE_END_ERROR": "The profile name cannot be ended with '(D)'",
+			"PROFILE_ERROR": "\", ', spaces or chinese are not allowed"
+		}
+	},
+	"NETWORK-PIN_MANAGE": {
+		"TITLE": "PIN Management",
+		"DESCRIPTION": "PIN management",
+		"CONTENT": {
+			"PIN": "PIN",
+			"ENTER_PIN": "Enter PIN",
+			"REMAINING_ATTEMPT": "Remaining attempts: ",
+			"WRONG_PIN": "Incorrect PIN. Remaining attempts: ",
+			"WRONG_PIN_ERROR": "Incorrect PIN",
+			"PIN_PATTERN_ERROR": "The PIN must be 4 to 8 digits.",
+			"GET_PIN_ERROR": "Unable to get PIN status.",
+			"CHANGE_PIN": "Change PIN"
+		}
+	},
+	"NETWORK-CHANGE_PIN": {
+		"TITLE": "Change PIN",
+		"DESCRIPTION": "Change PIN",
+		"CONTENT": {
+			"CURRENT_PIN": "Current PIN",
+			"ENTER_CURRENT_PIN": "Enter current PIN",
+			"NEW_PIN": "New PIN",
+			"ENTER_NEW_PIN": "Enter new PIN",
+			"REMAINING_ATTEMPT": "Remaining attempts: ",
+			"WRONG_PIN_ERROR": "Current PIN is incorrect",
+			"INVALID_PIN_ERROR": "Save fail! Please confirm the current PIN is valid.",
+			"PIN_PATTERN_ERROR": "The PIN must be 4 to 8 digits."
+		}
+	},
+	"NETWORK-PUK_UNLOCK": {
+		"TITLE": "Enter PUK",
+		"DESCRIPTION": "PUK Management",
+		"CONTENT": {
+			"PUK": "PUK",
+			"ENTER_PUK": "Enter PUK",
+			"NEW_PIN": "New PIN",
+			"ENTER_NEW_PIN": "Enter new PIN",
+			"PIN_LOCKED": "PIN locked. Please enter PUK.",
+			"REMAINING_ATTEMPT": "Remaining attempts: ",
+			"WRONG_PUK": "Incorrect PUK.",
+			"PUK_PATTERN_ERROR": "The PUK must be 8 digits.",
+			"PIN_PATTERN_ERROR": "The PIN must be 4 to 8 digits.",
+			"SIM_CARD_BLOCKED": "SIM Card Blocked."
+		}
+	}
+}

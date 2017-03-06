@@ -1,0 +1,63 @@
+<ion-view view-title="{{'LOGIN.TITLE' | translate}}" hide-back-button="true" can-swipe-back="false">
+  <ion-nav-buttons side="left">
+    <button class="button back-button button-clear header-item" ng-click="tpService.linkService.goBack()">
+      <i class="icon" ng-class="{true:'ion-android-arrow-back', false:'ion-ios-arrow-back'}[tpService.serviceValue.ionicPlatform.isAndroid]"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content scroll="false" class="gray-bg padding-top">
+    <div ng-if="data.local.isFactory">
+      <ng-form name="login.form" novalidate>
+        <ion-item class="item-input item-icon-right">
+          <span class="input-label" translate="LOGIN.CONTENT.PASSWORD"></span>
+          <input ng-model="data.local.password" ng-change="action.checkLoginPasswordStrength()"
+          name="password" type="{{data.local.inputType}}" maxlength="15" placeholder="{{'LOGIN.CONTENT.PASSWORD_HINT' | translate}}"
+          check-login-password></input>
+          <i ng-click="action.switchInputType()" class="icon ion-eye {{data.local.iconColor}}"></i>
+        </ion-item>
+        <div ng-messages='login.form.password.$error' ng-show='login.form.password.$dirty'>
+          <div ng-message='checkLoginPassword'>
+            <span class="item-alert" translate="ACCOUNT.CONTENT.INVALID_PASSWORD"></span>
+          </div>
+        </div>
+        <div ng-show="!login.form.$invalid">
+          <span ng-show="data.local.passwordStrength==data.local.STRENGTH.STRONG" class="item-success"
+          translate="ACCOUNT.CONTENT.STRENGTH_STRONG"></span>
+          <span ng-show="data.local.passwordStrength==data.local.STRENGTH.MIDDLE" class="item-warning"
+          translate="ACCOUNT.CONTENT.STRENGTH_MIDDLE"></span>
+          <span ng-show="data.local.passwordStrength==data.local.STRENGTH.WEAK" class="item-alert"
+          translate="ACCOUNT.CONTENT.STRENGTH_WEAK"></span>
+        </div>
+        <span class="list-info" translate="LOGIN.CONTENT.SET_PASSWORD_AT_FIRST"></span>
+        <div class="pl10 pr10">
+          <button ng-disabled="login.form.$invalid" ng-click="action.setPassword()" class="button button-full button-positive border-radius-5"
+          translate="COMMON.CONTENT.SAVE"></button>
+        </div>
+      </ng-form>
+    </div>
+    <div ng-if="!data.local.isFactory">
+      <ng-form name="login.form2" novalidate>
+        <ion-item class="item-input item-icon-right">
+          <span class="input-label" translate="LOGIN.CONTENT.PASSWORD"></span>
+          <input name="password" ng-model="data.local.password" ng-disabled="data.local.isLocked"
+          type="{{data.local.inputType}}" maxlength="15" placeholder="{{'LOGIN.CONTENT.PASSWORD_HINT' | translate}}"
+          required></input>
+          <i ng-click="action.switchInputType()" class="icon ion-eye {{data.local.iconColor}}"></i>
+        </ion-item>
+        <!--<div ng-messages='login.form2.password.$error' ng-show='login.form2.password.$dirty'>-->
+        <!--<div ng-message='required'>-->
+        <!--<span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <span ng-click="action.forgetPassword()" class="item-message" translate="LOGIN.CONTENT.FORGET_PASSWORD"></span>
+        <span ng-show="!data.local.isLocked && data.local.tryLoginFail" class="list-warning"
+        translate="LOGIN.CONTENT.INCORRECT_PASSWORD_WITH_REMAIN_ATTEMPTS" translate-values='{remainAttempts: data.local.remainAttempts}'></span>
+        <span ng-show="data.local.isLocked" class="list-alert" translate="LOGIN.CONTENT.LOGIN_LOCKED"
+        translate-values='{totalAttempts: data.server.attempt.totalAttempts, loginDisabledRemainTime: data.local.loginDisabledRemainTime}'></span>
+        <div class="pl10 pr10">
+          <button ng-disabled="data.local.isLocked || login.form2.$invalid" ng-click="action.login()"
+          class="button button-full button-positive border-radius-5" translate="LOGIN.CONTENT.LOGIN"></button>
+        </div>
+      </ng-form>
+    </div>
+  </ion-content>
+</ion-view>

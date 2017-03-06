@@ -1,0 +1,61 @@
+<ion-view view-title="{{'DEVICE.TITLE' | translate}}">
+  <ion-content class="gray-bg padding-top" scroll="true">
+    <ion-list>
+      <ion-item>
+        <span translate="DEVICE.CONTENT.MODEL"></span>
+        <span class="item-note">{{data.server.deviceInfo.model}}</span>
+      </ion-item>
+      <ion-item ng-show="data.server.deviceInfo.imei">
+        <span translate="DEVICE.CONTENT.IMEI"></span>
+        <span class="item-note">{{data.server.deviceInfo.imei}}</span>
+      </ion-item>
+      <ion-item ng-show="data.server.deviceInfo.meid && !data.local.isCMCU">
+        <span translate="DEVICE.CONTENT.MEID"></span>
+        <span class="item-note">{{data.server.deviceInfo.meid}}</span>
+      </ion-item>
+      <ion-item>
+        <span translate="DEVICE.CONTENT.MAC_ADDRESS">MAC</span>
+        <span class="item-note">{{data.server.deviceInfo.mac}}</span>
+      </ion-item>
+      <ion-item>
+        <span translate="DEVICE.CONTENT.HARDWARE_VERSION"></span>
+        <span class="item-note">{{data.local.hardwareVer}}</span>
+      </ion-item>
+      <ion-item ng-click="action.checkNewVer()">
+        <span class="primary" translate="DEVICE.CONTENT.SOFTWARE_VERSION"></span>
+        <span ng-if="!data.local.hasNewVer" class="item-note">{{data.local.firmwareVer}}</span>
+        <span ng-if="data.local.hasNewVer" class="item-note assertive" translate="DEVICE.CONTENT.NEW_VERSION"></span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
+<script id="mod-device-updateDetail.html" type="text/ng-template">
+  <div>
+    <b><span translate="DEVICE.CONTENT.CURRENT_VERSION"></span></b>
+    <span>{{data.local.firmwareVer}}</span>
+  </div>
+  <div>
+    <b><span translate="DEVICE.CONTENT.LATEST_VERSION"></span></b>
+    <span>{{data.local.latestVer}}</span>
+  </div>
+  <div>
+    <b><span translate="DEVICE.CONTENT.FIRMWARE_SIZE"></span></b>
+    <span>{{data.local.firmwareSize}}</span>
+  </div>
+  <div>
+    <b><span class="show" translate="DEVICE.CONTENT.RELEASE_NOTE"></span></b>
+    <ul ng-repeat="releaseNotePart in data.local.releaseNote">
+      <li>{{releaseNotePart}}</li>
+    </ul>
+  </div>
+</script>
+
+<script id="mod-device-progress.html" type="text/ng-template">
+  <div class="h110">
+    <span>{{data.local.downloadPercentStr}}</span>
+    <progress class="w200" value="{{data.local.downloadPercent}}" max="100"></progress>
+    <button ng-click="action.pauseDownload()" class="button button-full button-assertive mb-5"
+    translate="COMMON.CONTENT.CANCEL"></button>
+  </div>
+</script>

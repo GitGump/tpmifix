@@ -1,0 +1,55 @@
+{
+	"SDCARD": {
+		"TITLE": "SD Sharing",
+		"DESCRIPTION": "Manage files in router's SDCard, and share them to social network.",
+		"CONTENT": {
+			"ACCESS_MODE": {
+				"WIFI": "Wi-Fi Mode",
+				"USB": "USB Mode"
+			},
+			"SETTING": "Setting",
+			"SWITCH_MODE": "Switch access mode",
+			"SWITCH_MODE_PROMPT": "Make sure no data is being transferred during the mode switching process to prevent data loss.",
+			"SHOW_FILE_POSTFIX": "Show filename extension",
+			"CLEAR_CACHE": "Clear cache",
+			"CLEAR_CACHE_PROMPT": "Make sure to clear cached images, videos...?",
+			"COUNT_CACHE_SIZE": "Counting...",
+			"NOW_IN_USB_MODE": "In USB access mode, you can only access the SD card from a computer using a Micro USB cable. To access the SD card via the App, switch to Wi-Fi mode.",
+			"CONNECTING": "Connecting to SD card...",
+			"CONNECT_FAIL": "Cannot access SD card.",
+			"NO_FILES": "No files.",
+			"NOT_READY": "Action not ready, please try again later.",
+			"SELECT_NONE_WARN": "Please select at least one valid file.",
+			"JUST_SUPPORT_MEDIA_TYPE": {
+				"DOWNLOAD": "Just support image and video, other files will not be cached.",
+				"SAVE": "Just support image and video, other files will not be saved.",
+				"SHARE": "Just support image, other files will not be shared."
+			},
+			"CREATE_DIRECTORY": "New folder",
+			"CREATE_DIRECTORY_PROMPT": "Please input the new folder name",
+			"CREATE_DIRECTORY_INVALID": "Folder name can not be blank or contain /\\:*?\"<>|",
+			"CREATE_DIRECTORY_FAIL": "Failed to create the new folder!",
+			"CREATE_DIRECTORY_FAIL_EXIST_FILE": "Failed to create the new folder, as the same named file is already exist!",
+			"UPLOAD_OK": "Successful to upload ",
+			"UPLOAD_FAIL": "Failed to upload ",
+			"UPLOAD_PERCENT_FULL": "Uploading {{count}}/{{total}}, percent {{percent}}%",
+			"UPLOAD_PERCENT": {
+				"PART1": "Uploading ",
+				"PART2": ", percent "
+			},
+			"DOWNLOAD_OK": "Successful to cache ",
+			"DOWNLOAD_FAIL": "Failed to cache ",
+			"DOWNLOAD_PERCENT_FULL": "Caching {{count}}/{{total}}，percent {{percent}}%",
+			"DOWNLOAD_PERCENT": {
+				"PART1": "Caching ",
+				"PART2": ", percent "
+			},
+			"SAVE_OK": "Successful to save ",
+			"SAVE_OK_TO_ALBUM": " has been saved to album.",
+			"SAVE_FAIL": "Failed to save ",
+			"DELETE_FAIL": "Failed to delete ",
+			"DELETE_DIRECTORY_PROMPT": "Make sure it's empty before delete.",
+			"ENCODING_PROMPT": "Only UTF-8 encoding is supported currently."
+		}
+	}
+}

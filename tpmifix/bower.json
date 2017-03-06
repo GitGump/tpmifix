@@ -1,7 +1,31 @@
 {
-  "name": "HelloIonic",
+  "name": "tpmifix",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.3.3"
+    "ionic": "driftyco/ionic-bower#1.2.4",
+    "angular-mocks": "~1.4.8"
+  },
+  "dependencies": {
+    "angular-local-storage": "~0.2.3",
+    "cryptojslib": "~3.1.2",
+    "angular-toastr": "~1.5.0",
+    "angular-translate": "~2.8.1",
+    "angular-translate-loader-partial": "~2.8.1",
+    "oclazyload": "ocLazyLoad#~1.0.8",
+    "angular-messages": "~1.4.8",
+    "videogular": "~1.4.2",
+    "videogular-themes-default": "~1.4.2",
+    "videogular-controls": "~1.4.2",
+    "videogular-buffering": "~1.4.2",
+    "videogular-overlay-play": "~1.4.2",
+    "videogular-poster": "~1.4.2",
+    "async": "~1.5.2",
+    "pdfjs-dist": "~1.5.256",
+    "angular-thumbnails": "~0.2.1",
+    "angular-pdf-viewer": "https://github.com/xfally/angular-pdf-viewer.git#master",
+    "angular-loading-bar": "~0.9.0"
+  },
+  "resolutions": {
+    "angular": "1.4.3"
   }
 }

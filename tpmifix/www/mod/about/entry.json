@@ -1,0 +1,17 @@
+{
+	"mod": "about",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "About",
+			"description": "App's version and update",
+			"icon": "about.png"
+		},
+		"zh": {
+			"title": "关于",
+			"description": "App的版本号与更新",
+			"icon": "about.png"
+		},
+		"location": "sideMenu"
+	}
+}

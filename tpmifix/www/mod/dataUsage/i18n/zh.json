@@ -1,0 +1,125 @@
+{
+	"DATA_USAGE": {
+		"TITLE": "流量设置",
+		"DESCRIPTION": "流量设置",
+		"CONTENT": {
+			"DATA_LIMIT": "流量限额",
+			"DATA_LIMIT_TYPE": "限额类型",
+			"DATA": "流量",
+			"TIME": "时间",
+			"MINUTE": "分钟",
+			"HOUR": "小时",
+			"DAY": "天",
+			"MAX_KB_ERROR": "请输入 0 - 999999 范围内的有效数字",
+			"MAX_MB_ERROR": "请输入 0 - 99999 范围内的有效数字",
+			"MAX_GB_ERROR": "请输入 0 - 9999 范围内的有效数字",
+			"MAX_MINUTE_ERROR": "请输入 0 - 44640 范围内的有效数字",
+			"MAX_HOUR_ERROR": "请输入 0 - 744 范围内的有效数字",
+			"MAX_DAY_ERROR": "请输入 0 - 31 范围内的有效数字",
+			"MONTH_DATA": "每月流量统计",
+			"START_DAY": "月结日",
+			"MONTH_USED": "本月已用",
+			"MONTH_ALLOWANCE": "每月可用",
+			"MONTH_DATA_USED": "本月已用流量",
+			"MONTH_DATA_ALLOWANCE": "每月可用流量",
+			"MONTH_TIME_USED": "本月已用时间",
+			"MONTH_TIME_ALLOWANCE": "每月可用时间",
+			"TOTAL_USED": "总共已用",
+			"TOTAL_ALLOWANCE": "总共可用",
+			"TOTAL_DATA_USED": "总共已用流量",
+			"TOTAL_DATA_ALLOWANCE": "总共可用流量",
+			"TOTAL_TIME_USED": "总共已用时间",
+			"TOTAL_TIME_ALLOWANCE": "总共可用时间",
+			"USAGE_ALERT": "超比例提醒",
+			"AUTO_DISCONNECT": "超额自动断网",
+			"CLEAR_DATA": "清除数据",
+			"CLEAR_DATA_CONFIRM": "确定要清除所有统计数据吗？"
+		}
+	},
+	"DATA_USAGE-LIMIT_TYPE": {
+		"TITLE": "限额类型",
+		"DESCRIPTION": "限额类型",
+		"CONTENT": {
+			"DATA": "流量",
+			"TIME": "时间"
+		}
+	},
+	"DATA_USAGE-START_DAY": {
+		"TITLE": "月结日",
+		"DESCRIPTION": "月结日",
+		"CONTENT": {
+			"START_DAY": "月结日"
+		}
+	},
+	"DATA_USAGE-MONTH_DATA_USED": {
+		"TITLE": "本月已用流量",
+		"DESCRIPTION": "本月已用流量",
+		"CONTENT": {
+			"MONTH_DATA_USED": "本月已用流量",
+			"ENTER_MONTH_DATA_USED": "输入本月已用流量"
+		}
+	},
+	"DATA_USAGE-MONTH_DATA_ALLOWANCE": {
+		"TITLE": "每月可用流量",
+		"DESCRIPTION": "每月可用流量",
+		"CONTENT": {
+			"MONTH_DATA_ALLOWANCE": "每月可用流量",
+			"ENTER_MONTH_DATA_ALLOWANCE": "输入每月可用流量"
+		}
+	},
+	"DATA_USAGE-MONTH_TIME_USED": {
+		"TITLE": "本月已用时间",
+		"DESCRIPTION": "本月已用时间",
+		"CONTENT": {
+			"MONTH_TIME_USED": "本月已用时间",
+			"ENTER_MONTH_TIME_USED": "输入本月已用时间"
+		}
+	},
+	"DATA_USAGE-MONTH_TIME_ALLOWANCE": {
+		"TITLE": "每月可用时间",
+		"DESCRIPTION": "每月可用时间",
+		"CONTENT": {
+			"MONTH_TIME_ALLOWANCE": "每月可用时间",
+			"ENTER_MONTH_TIME_ALLOWANCE": "输入每月可用时间"
+		}
+	},
+	"DATA_USAGE-TOTAL_DATA_USED": {
+		"TITLE": "总共已用流量",
+		"DESCRIPTION": "总共已用流量",
+		"CONTENT": {
+			"TOTAL_DATA_USED": "总共已用流量",
+			"ENTER_TOTAL_DATA_USED": "输入总共已用流量"
+		}
+	},
+	"DATA_USAGE-TOTAL_DATA_ALLOWANCE": {
+		"TITLE": "总共可用流量",
+		"DESCRIPTION": "总共可用流量",
+		"CONTENT": {
+			"TOTAL_DATA_ALLOWANCE": "总共可用流量",
+			"ENTER_TOTAL_DATA_ALLOWANCE": "输入总共可用流量"
+		}
+	},
+	"DATA_USAGE-TOTAL_TIME_USED": {
+		"TITLE": "总共已用时间",
+		"DESCRIPTION": "总共已用时间",
+		"CONTENT": {
+			"TOTAL_TIME_USED": "总共已用时间",
+			"ENTER_TOTAL_TIME_USED": "输入总共已用时间"
+		}
+	},
+	"DATA_USAGE-TOTAL_TIME_ALLOWANCE": {
+		"TITLE": "总共可用时间",
+		"DESCRIPTION": "总共可用时间",
+		"CONTENT": {
+			"TOTAL_TIME_ALLOWANCE": "总共可用时间",
+			"ENTER_TOTAL_TIME_ALLOWANCE": "输入总共可用时间"
+		}
+	},
+	"DATA_USAGE-USAGE_ALERT": {
+		"TITLE": "超比例提醒",
+		"DESCRIPTION": "超比例提醒",
+		"CONTENT": {
+			"USAGE_ALERT": "超比例提醒"
+		}
+	}
+}

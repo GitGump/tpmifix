@@ -1,0 +1,23 @@
+{
+	"TOOLS": {
+		"TITLE": "System Tools",
+		"DESCRIPTION": "Reboot, poweroff, restore",
+		"CONTENT": {
+			"REBOOT": "Reboot",
+			"REBOOT_CONFIRM": "Are you sure you want to reboot the router?",
+			"REBOOT_LOADING": "Rebooting, please wait...",
+			"REBOOT_SUCC": "Reboot successfully.",
+			"REBOOT_FAIL": "Reboot failed! please try again later.",
+			"POWEROFF": "Power off",
+			"POWEROFF_CONFIRM": "Are you sure you want to power off the router?",
+			"POWEROFF_LOADING": "The router will power off.",
+			"POWEROFF_SUCC": "Power off successfully.",
+			"POWEROFF_FAIL": "Power off failed! please try again later.",
+			"RESTORE": "Restore",
+			"RESTORE_CONFIRM": "Restoring to factory default will not take effect until the router is rebooted. Continue?",
+			"RESTORE_LOADING": "Restoring, please wait...",
+			"RESOTRE_SUCC": "Restore successfully.",
+			"RESTORE_FAIL": "Restore failed!, please try again later."
+		}
+	}
+}

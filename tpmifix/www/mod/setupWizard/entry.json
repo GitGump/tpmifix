@@ -1,0 +1,17 @@
+{
+	"mod": "setupWizard",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "Setup Wizard",
+			"description": "Setup wifi password and login password",
+			"icon": ""
+		},
+		"zh": {
+			"title": "设置向导",
+			"description": "设置wifi密码和登陆密码",
+			"icon": ""
+		},
+		"location": "hide"
+	}
+}

@@ -1,0 +1,106 @@
+{
+	"HOME": {
+		"TITLE": "主页",
+		"DESCRIPTION": "Hi~ 我是App的主页",
+		"CONTENT": {
+			"MENU": "菜单",
+			"LOGIN": "登录",
+			"LOGOUT": "登出",
+			"LOGOUT_OK": "登出成功",
+			"DEVICE": "设备",
+			"DISCONNECTED": "未连接",
+			"MOBILE_NETWORK": {
+				"CARRIER_NAME": {
+					"NONE": "未检测到运营商",
+					"CMCC": "中国移动",
+					"CUCC": "中国联通",
+					"CTCC": "中国电信",
+					"China Mobile": "中国移动",
+					"China Unicom": "中国联通",
+					"China Telecom": "中国电信"
+				},
+				"NETWORK_TYPE": {
+					"0": "无服务",
+					"1": "GSM",
+					"2": "WCDMA",
+					"3": "LTE",
+					"4": "TD-SCDMA",
+					"5": "CDMA 1x",
+					"6": "CDMA 1xEv-Do"
+				},
+				"OPERATOR": {
+					"0": "无SIM卡",
+					"1": "PIN码已锁定",
+					"2": "PUK码已锁定",
+					"3": "SIM卡已被禁用",
+					"4": "SIM卡错误",
+					"5": "无服务",
+					"6": "正在搜索...",
+					"7": "中国移动",
+					"8": "中国联通",
+					"9": "中国电信",
+					"10": "未识别"
+				},
+				"CONNECT_STATUS": {
+					"0": "网络已被禁用",
+					"1": "网络已断开",
+					"2": "正在连接...",
+					"3": "正在断开...",
+					"4": "网络已连接"
+				}
+			},
+			"DATA_USAGE": {
+				"TOTAL": "总共：",
+				"USED": "已使用"
+			},
+			"BATTERY": {
+				"TITLE": "电量",
+				"DETAIL": "剩余: {{number}}%"
+			},
+			"WIFI_USERS": {
+				"TITLE": "已连设备",
+				"DETAIL": "数量: {{number}}"
+			},
+			"SMS": {
+				"TITLE": "短信",
+				"DETAIL": "未读: {{number}}"
+			},
+			"SD_SHARING": {
+				"TITLE": "查看SD卡",
+				"DETAIL": {
+					"NO_SD": "无SD卡",
+					"INVALID_SD": "SD卡存在问题",
+					"USB_MODE": "USB模式",
+					"WIFI_MODE": "Wi-Fi模式",
+					"MODE": "模式:",
+					"LEFT": "剩余:"
+				}
+			},
+			"NOTIFICATION": {
+				"TITLE": "通知",
+				"DESCRIPTION": "本地通知内容",
+				"CONTENT": {
+					"NEW_SMS": "您有未读短信",
+					"NEW_DEVICE": "有新的设备接入路由器",
+					"ROAMING": "您正处于漫游状态",
+					"DATA_LIMIT_WARN": "已用流量超出所设提醒值",
+					"DATA_LIMIT_OVERFLOW": "已用流量超出最高限额",
+					"TIME_LIMIT_WARN": "已用时间超出所设提醒值",
+					"TIME_LIMIT_OVERFLOW": "已用时间超出最高限额",
+					"SIM_NOT_FOUND": "无法检测到SIM卡",
+					"LOW_BATTERY": "电池电量低"
+				}
+			},
+			"UPDATE": {
+				"TITLE": "更新",
+				"DESCRIPTION": "检查软件更新",
+				"CONTENT": {
+					"UPDATE_NOW": "现在升级",
+					"UPDATE_LATER": "暂不升级",
+					"APP_HAS_NEW_VER": "检测到App新版本，是否升级？",
+					"FIRMWARE_HAS_NEW_VER": "检测到路由器新版本，是否升级？"
+				}
+			}
+		}
+	}
+}

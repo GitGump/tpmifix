@@ -1,0 +1,35 @@
+<ion-view hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button ng-click="tpService.linkService.goBackHome()" class="button back-button button-clear header-item">
+      <i class="icon" ng-class="{true:'ion-android-arrow-back', false:'ion-ios-arrow-back'}[tpService.serviceValue.ionicPlatform.isAndroid]"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-title translate="NETWORK-PIN_MANAGE.CONTENT.ENTER_PIN">
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button ng-disabled="pinUnlock.form.$invalid" ng-click="action.confirm()" class="button button-icon"
+    translate="COMMON.CONTENT.CONFIRM"></button>
+  </ion-nav-buttons>
+  <ion-content class="gray-bg padding-top">
+    <ng-form name="pinUnlock.form" novalidate>
+      <ion-list>
+        <ion-item class="item-input">
+          <input ng-model="data.local.pin" name="pin" type="text" placeholder="{{'NETWORK-PIN_MANAGE.CONTENT.ENTER_PIN' | translate}}"
+          required check-network-pin></input>
+        </ion-item>
+        <div ng-if="pinUnlock.form.pin.$dirty" ng-messages="pinUnlock.form.pin.$error">
+          <div ng-message="required">
+            <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+          </div>
+          <div ng-message="checkNetworkPIN">
+            <span class="item-alert" translate="NETWORK-PIN_MANAGE.CONTENT.PIN_PATTERN_ERROR"></span>
+          </div>
+        </div>
+      </ion-list>
+      <span class="list-info">
+        {{'NETWORK-PIN_MANAGE.CONTENT.REMAINING_ATTEMPT' | translate}}
+        <span class="assertive">{{data.local.leftTimes}}</span>
+      </span>
+    </ng-form>
+  </ion-content>
+</ion-view>

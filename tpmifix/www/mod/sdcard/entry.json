@@ -1,0 +1,17 @@
+{
+	"mod": "sdcard",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "SD Sharing",
+			"description": "Manage your files on router's SDCard, and share music, videos, photos and other files on the go.",
+			"icon": "sdcard.png"
+		},
+		"zh": {
+			"title": "查看SD卡",
+			"description": "管理路由器上的文件，并分享音乐，电影，图片和其他文件。",
+			"icon": "sdcard.png"
+		},
+		"location": "gridMenu"
+	}
+}

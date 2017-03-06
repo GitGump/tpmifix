@@ -1,0 +1,106 @@
+{
+	"HOME": {
+		"TITLE": "Home",
+		"DESCRIPTION": "Hi~ I'am the home page of App",
+		"CONTENT": {
+			"MENU": "Menu",
+			"LOGIN": "Login",
+			"LOGOUT": "Logout",
+			"LOGOUT_OK": "Logout successfully",
+			"DEVICE": "Device",
+			"DISCONNECTED": "Disconnected",
+			"MOBILE_NETWORK": {
+				"CARRIER_NAME": {
+					"NONE": "No Carrier",
+					"CMCC": "China Mobile",
+					"CUCC": "China Unicom",
+					"CTCC": "China Telecom",
+					"China Mobile": "China Mobile",
+					"China Unicom": "China Unicom",
+					"China Telecom": "China Telecom"
+				},
+				"NETWORK_TYPE": {
+					"0": "No Service",
+					"1": "GSM",
+					"2": "WCDMA",
+					"3": "LTE",
+					"4": "TD-SCDMA",
+					"5": "CDMA 1x",
+					"6": "CDMA 1xEv-Do"
+				},
+				"OPERATOR": {
+					"0": "No SIM Card",
+					"1": "PIN Locked",
+					"2": "PUK Locked",
+					"3": "SIM Card Blocked",
+					"4": "SIM card error",
+					"5": "No Service",
+					"6": "Searching...",
+					"7": "China Mobile",
+					"8": "China Unicom",
+					"9": "China Telecom",
+					"10": "Unknown"
+				},
+				"CONNECT_STATUS": {
+					"0": "Disabled",
+					"1": "Disconnected",
+					"2": "Connecting",
+					"3": "Disconnecting",
+					"4": "Connected"
+				}
+			},
+			"DATA_USAGE": {
+				"TOTAL": "Total: ",
+				"USED": "Used"
+			},
+			"BATTERY": {
+				"TITLE": "Battery",
+				"DETAIL": "Left: {{number}}%"
+			},
+			"WIFI_USERS": {
+				"TITLE": "Wi-Fi Users",
+				"DETAIL": "Number: {{number}}"
+			},
+			"SMS": {
+				"TITLE": "SMS",
+				"DETAIL": "Unread: {{number}}"
+			},
+			"SD_SHARING": {
+				"TITLE": "SD Sharing",
+				"DETAIL": {
+					"NO_SD": "No SD Card",
+					"INVALID_SD": "Invalid SD Card",
+					"USB_MODE": "USB mode",
+					"WIFI_MODE": "Wi-Fi mode",
+					"MODE": "Mode:",
+					"LEFT": "Left:"
+				}
+			},
+			"NOTIFICATION": {
+				"TITLE": "Notification",
+				"DESCRIPTION": "Notification content",
+				"CONTENT": {
+					"NEW_SMS": "You have unread message.",
+					"NEW_DEVICE": "New device connected to router.",
+					"ROAMING": "You are currently roaming.",
+					"DATA_LIMIT_WARN": "Data usage has exceeded the alert threshold.",
+					"DATA_LIMIT_OVERFLOW": "Data usage has exceeded the limit.",
+					"TIME_LIMIT_WARN": "Time usage has exceeded the alert threshold.",
+					"TIME_LIMIT_OVERFLOW": "Time usage has exceeded the limit.",
+					"SIM_NOT_FOUND": "Unable to detect SIM card.",
+					"LOW_BATTERY": "Low battery."
+				}
+			},
+			"UPDATE": {
+				"TITLE": "Update",
+				"DESCRIPTION": "Check software update",
+				"CONTENT": {
+					"UPDATE_NOW": "Update now",
+					"UPDATE_LATER": "Later",
+					"APP_HAS_NEW_VER": "New App version is available. Do you want to upgrade now?",
+					"FIRMWARE_HAS_NEW_VER": "New router firmware version is available. Do you want to upgrade now?"
+				}
+			}
+		}
+	}
+}

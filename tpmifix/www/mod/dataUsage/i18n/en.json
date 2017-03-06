@@ -1,0 +1,125 @@
+{
+	"DATA_USAGE": {
+		"TITLE": "Data Usage Settings",
+		"DESCRIPTION": "Data Usage Settings",
+		"CONTENT": {
+			"DATA_LIMIT": "Data usage limit",
+			"DATA_LIMIT_TYPE": "Data usage limit type",
+			"DATA": "Data",
+			"TIME": "Time",
+			"MINUTE": "mins",
+			"HOUR": "hrs",
+			"DAY": "days",
+			"MAX_KB_ERROR": "Please enter a number from 0 to 999999",
+			"MAX_MB_ERROR": "Please enter a number from 0 to 99999",
+			"MAX_GB_ERROR": "Please enter a number from 0 to 9999",
+			"MAX_MINUTE_ERROR": "Please enter a number from 0 to 44640",
+			"MAX_HOUR_ERROR": "Please enter a number from 0 to 744",
+			"MAX_DAY_ERROR": "Please enter a number from 0 to 31",
+			"MONTH_DATA": "Monthly data statistics",
+			"START_DAY": "Start Date",
+			"MONTH_USED": "Monthly used",
+			"MONTH_ALLOWANCE": "Monthly allowance",
+			"MONTH_DATA_USED": "Monthly data used",
+			"MONTH_DATA_ALLOWANCE": "Monthly data allowance",
+			"MONTH_TIME_USED": "Monthly time used",
+			"MONTH_TIME_ALLOWANCE": "Monthly time allowance",
+			"TOTAL_USED": "Total used",
+			"TOTAL_ALLOWANCE": "Total allowance",
+			"TOTAL_DATA_USED": "Total data used",
+			"TOTAL_DATA_ALLOWANCE": "Total data allowance",
+			"TOTAL_TIME_USED": "Total time used",
+			"TOTAL_ALLOWANCE_TIME": "Total time allowance",
+			"USAGE_ALERT": "Usage alert",
+			"AUTO_DISCONNECT": "Disconnect on Quota",
+			"CLEAR_DATA": "Clear statistics",
+			"CLEAR_DATA_CONFIRM": "Are you sure you want to clear all statistics?"
+		}
+	},
+	"DATA_USAGE-LIMIT_TYPE": {
+		"TITLE": "Data Usage Limit Type",
+		"DESCRIPTION": "Data usage limit type",
+		"CONTENT": {
+			"DATA": "Data",
+			"TIME": "Time"
+		}
+	},
+	"DATA_USAGE-START_DAY": {
+		"TITLE": "Start Date",
+		"DESCRIPTION": "Start data",
+		"CONTENT": {
+			"START_DAY": "Start date"
+		}
+	},
+	"DATA_USAGE-MONTH_DATA_USED": {
+		"TITLE": "Monthly Data Used",
+		"DESCRIPTION": "Monthly data used",
+		"CONTENT": {
+			"MONTH_DATA_USED": "Monthly data used",
+			"ENTER_MONTH_DATA_USED": "Enter monthly data used"
+		}
+	},
+	"DATA_USAGE-MONTH_DATA_ALLOWANCE": {
+		"TITLE": "Monthly Data Allowance",
+		"DESCRIPTION": "Monthly data allowance",
+		"CONTENT": {
+			"MONTH_DATA_ALLOWANCE": "Monthly data allowance",
+			"ENTER_MONTH_DATA_ALLOWANCE": "Enter monthly data allowance"
+		}
+	},
+	"DATA_USAGE-MONTH_TIME_USED": {
+		"TITLE": "Monthly Time Used",
+		"DESCRIPTION": "Monthly time used",
+		"CONTENT": {
+			"MONTH_TIME_USED": "Monthly time used",
+			"ENTER_MONTH_TIME_USED": "Enter monthly time used"
+		}
+	},
+	"DATA_USAGE-MONTH_TIME_ALLOWANCE": {
+		"TITLE": "Monthly Time Allowance",
+		"DESCRIPTION": "Monthly time allowance",
+		"CONTENT": {
+			"MONTH_TIME_ALLOWANCE": "Monthly time allowance",
+			"ENTER_MONTH_TIME_ALLOWANCE": "Enter monthly time allowance"
+		}
+	},
+	"DATA_USAGE-TOTAL_DATA_USED": {
+		"TITLE": "Total Data Used",
+		"DESCRIPTION": "Total data used",
+		"CONTENT": {
+			"TOTAL_DATA_USED": "Total data used",
+			"ENTER_TOTAL_DATA_USED": "Enter total data used"
+		}
+	},
+	"DATA_USAGE-TOTAL_DATA_ALLOWANCE": {
+		"TITLE": "Total Data Allowance",
+		"DESCRIPTION": "Total data allowance",
+		"CONTENT": {
+			"TOTAL_DATA_ALLOWANCE": "Total data allowance",
+			"ENTER_TOTAL_DATA_ALLOWANCE": "Enter total data allowance"
+		}
+	},
+	"DATA_USAGE-TOTAL_TIME_USED": {
+		"TITLE": "Total Time Used",
+		"DESCRIPTION": "Total time used",
+		"CONTENT": {
+			"TOTAL_TIME_USED": "Total time used",
+			"ENTER_TOTAL_TIME_USED": "Enter total time used"
+		}
+	},
+	"DATA_USAGE-TOTAL_TIME_ALLOWANCE": {
+		"TITLE": "Total Time Allowance",
+		"DESCRIPTION": "Total time allowance",
+		"CONTENT": {
+			"TOTAL_TIME_ALLOWANCE": "Total time allowance",
+			"ENTER_TOTAL_TIME_ALLOWANCE": "Enter total time allowance"
+		}
+	},
+	"DATA_USAGE-USAGE_ALERT": {
+		"TITLE": "Usage Alert",
+		"DESCRIPTION": "Usage alert",
+		"CONTENT": {
+			"USAGE_ALERT": "Usage alert"
+		}
+	}
+}

@@ -1,0 +1,15 @@
+<ion-view view-title="{{'TOOLS.TITLE' | translate}}">
+  <ion-content class="gray-bg padding-top" scroll="true">
+    <ion-list>
+      <ion-item ng-click="action.reboot()">
+        <span class="primary" translate="TOOLS.CONTENT.REBOOT"></span>
+      </ion-item>
+      <ion-item ng-click="action.poweroff()">
+        <span class="primary" translate="TOOLS.CONTENT.POWEROFF"></span>
+      </ion-item>
+    </ion-list>
+    <ion-item ng-click="action.restore()" class="mt20">
+      <span class="assertive" translate="TOOLS.CONTENT.RESTORE"></span>
+    </ion-item>
+  </ion-content>
+</ion-view>

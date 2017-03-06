@@ -1,0 +1,39 @@
+{
+	"mod": "home",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "Home",
+			"description": "I'am the main UI of App",
+			"icon": ""
+		},
+		"zh": {
+			"title": "主页",
+			"description": "我是App的主页",
+			"icon": ""
+		},
+		"supportLocation": [
+			"sideMenu",
+			"gridMenu",
+			"hide"
+		],
+		"childMods": [
+			"wifi",
+			"network",
+			"account",
+			"device",
+			"tools",
+			"about",
+			"test",
+			"battery",
+			"clientList",
+			"sms",
+			"sdcard",
+			"dataUsage",
+			"introduce",
+			"login",
+			"player",
+			"setupWizard"
+		]
+	}
+}

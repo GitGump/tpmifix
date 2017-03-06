@@ -1,0 +1,17 @@
+{
+	"mod": "device",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "Router Info",
+			"description": "Router's name, IMEI, MAC address and software version",
+			"icon": "device.png"
+		},
+		"zh": {
+			"title": "路由器信息",
+			"description": "路由器的型号，IMEI，MAC和软件版本号",
+			"icon": "device.png"
+		},
+		"location": "sideMenu"
+	}
+}

@@ -1,0 +1,209 @@
+<ion-view view-title="{{'DATA_USAGE.TITLE' | translate}}">
+  <ion-content class="gray-bg padding-top" scroll="true">
+    <ion-list>
+      <ion-toggle ng-model="data.server.settings.enableDataLimit" ng-click="action.enableDataLimit()"
+      toggle-class="toggle-positive">
+        <span translate="DATA_USAGE.CONTENT.DATA_LIMIT"></span>
+      </ion-toggle>
+      <ion-item ng-show="data.server.settings.enableDataLimit" ng-click="tpService.linkService.gotoMod('dataUsage-limitType')"
+      class="item-icon-right">
+        <span translate="DATA_USAGE.CONTENT.DATA_LIMIT_TYPE"></span>
+        <span class="item-note">{{data.local.limitType.name | translate}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-toggle ng-model="data.server.settings.enablePaymentDay" ng-click="action.enablePaymentDay()"
+      toggle-class="toggle-positive">
+        <span translate="DATA_USAGE.CONTENT.MONTH_DATA"></span>
+      </ion-toggle>
+      <ion-item ng-show="data.server.settings.enablePaymentDay" ng-click="tpService.linkService.gotoMod('dataUsage-startDay')"
+      class="item-icon-right">
+        <span translate="DATA_USAGE.CONTENT.START_DAY"></span>
+        <span class="item-note">{{data.server.settings.paymentDay}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item ng-show="action.showMonthDataUsed()" ng-click="tpService.linkService.gotoMod('dataUsage-monthDataUsed')"
+      class="item-icon-right">
+        <span ng-if="!data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.MONTH_DATA_USED"></span>
+        <span ng-if="data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.MONTH_USED"></span>
+        <span class="item-note" ng-class="{true:'assertive', false:''}[data.server.settings.enableDataLimit && data.local.isDataExcess]">{{data.local.totalStatistics}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item ng-show="action.showMonthDataAllowance()" ng-click="tpService.linkService.gotoMod('dataUsage-monthDataAllowance')"
+      class="item-icon-right">
+        <span ng-if="!data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.MONTH_DATA_ALLOWANCE"></span>
+        <span ng-if="data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.MONTH_ALLOWANCE"></span>
+        <span class="item-note" ng-class="{true:'assertive', false:''}[data.local.isDataExcess]">{{data.local.limitation}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item ng-show="action.showMonthTimeUsed()" ng-click="tpService.linkService.gotoMod('dataUsage-monthTimeUsed')"
+      class="item-icon-right">
+        <span ng-if="!data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.MONTH_TIME_USED"></span>
+        <span ng-if="data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.MONTH_USED"></span>
+        <span class="item-note" ng-class="{true:'assertive', false:''}[data.server.settings.enableDataLimit && data.local.isDataExcess]">{{data.local.totalConnTime}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item ng-show="action.showMonthTimeAllowance()" ng-click="tpService.linkService.gotoMod('dataUsage-monthTimeAllowance')"
+      class="item-icon-right">
+        <span ng-if="!data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.MONTH_TIME_ALLOWANCE"></span>
+        <span ng-if="data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.MONTH_ALLOWANCE"></span>
+        <span class="item-note" ng-class="{true:'assertive', false:''}[data.local.isDataExcess]">{{data.local.limitation}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item ng-show="action.showTotalDataUsed()" ng-click="tpService.linkService.gotoMod('dataUsage-totalDataUsed')"
+      class="item-icon-right">
+        <span ng-if="!data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.TOTAL_DATA_USED"></span>
+        <span ng-if="data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.TOTAL_USED"></span>
+        <span class="item-note" ng-class="{true:'assertive', false:''}[data.server.settings.enableDataLimit && data.local.isDataExcess]">{{data.local.totalStatistics}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item ng-show="action.showTotalDataAllowance()" ng-click="tpService.linkService.gotoMod('dataUsage-totalDataAllowance')"
+      class="item-icon-right">
+        <span ng-if="!data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.TOTAL_DATA_ALLOWANCE"></span>
+        <span ng-if="data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.TOTAL_ALLOWANCE"></span>
+        <span class="item-note" ng-class="{true:'assertive', false:''}[data.local.isDataExcess]">{{data.local.limitation}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item ng-show="action.showTotalTimeUsed()" ng-click="tpService.linkService.gotoMod('dataUsage-totalTimeUsed')"
+      class="item-icon-right">
+        <span ng-if="!data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.TOTAL_TIME_USED"></span>
+        <span ng-if="data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.TOTAL_USED"></span>
+        <span class="item-note" ng-class="{true:'assertive', false:''}[data.server.settings.enableDataLimit && data.local.isDataExcess]">{{data.local.totalConnTime}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item ng-show="action.showTotalTimeAllowance()" ng-click="tpService.linkService.gotoMod('dataUsage-totalTimeAllowance')"
+      class="item-icon-right">
+        <span ng-if="!data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.TOTAL_TIME_ALLOWANCE"></span>
+        <span ng-if="data.server.settings.enableDataLimit" translate="DATA_USAGE.CONTENT.TOTAL_ALLOWANCE"></span>
+        <span class="item-note" ng-class="{true:'assertive', false:''}[data.local.isDataExcess]">{{data.local.limitation}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item ng-show="data.server.settings.enableDataLimit" ng-click="tpService.linkService.gotoMod('dataUsage-usageAlert')"
+      class="item-icon-right">
+        <span translate="DATA_USAGE.CONTENT.USAGE_ALERT"></span>
+        <span class="item-note">{{data.server.settings.warningPercent + '%'}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-toggle ng-show="data.server.settings.enableDataLimit" ng-click="action.enableAutoDisconnect()"
+      ng-model="data.server.settings.autoDisconnect" toggle-class="toggle-positive">
+        <span translate="DATA_USAGE.CONTENT.AUTO_DISCONNECT"></span>
+      </ion-toggle>
+      <ion-item ng-click="action.clearHistory()">
+        <span class="assertive" translate="DATA_USAGE.CONTENT.CLEAR_DATA"></span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
+<script id="mod-dataUsage-limitType.html" type="text/ng-template">
+  <ion-view view-title="{{'DATA_USAGE-LIMIT_TYPE.TITLE' | translate}}">
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ion-radio ng-click="action.submit(limitType.type)" ng-model="data.local.limitType"
+      ng-value="limitType" ng-checked="limitType.type === $index" ng-repeat="limitType in data.local.limitTypes">
+        <span>{{limitType.name | translate}}</span>
+      </ion-radio>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-dataUsage-startDay.html" type="text/ng-template">
+  <ion-view view-title="{{'DATA_USAGE-START_DAY.TITLE' | translate}}">
+    <ion-nav-buttons side="right">
+      <button ng-disabled="data.local.paymentDay === data.backup.paymentDay" ng-click="action.submit()"
+      class="button button-icon" translate="COMMON.CONTENT.SAVE">
+      </button>
+    </ion-nav-buttons>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ion-item class="item-select">
+        <span translate="DATA_USAGE-START_DAY.CONTENT.START_DAY"></span>
+        <select ng-model="data.local.paymentDay" ng-options="paymentDay for paymentDay in data.local.paymentDays">
+      </ion-item>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-dataUsage-flow.html" type="text/ng-template">
+  <ion-view view-title="{{data.local.title | translate}}">
+    <ion-nav-buttons side="right">
+      <button ng-disabled="flow.form.$invalid || (data.local.flowObj.flow === data.backup.flowObj.flow && data.local.flowObj.flowUnit.type === data.backup.flowObj.flowUnit.type)"
+      ng-click="action.submit()" class="button button-icon" translate="COMMON.CONTENT.SAVE">
+      </button>
+    </ion-nav-buttons>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ng-form name="flow.form" novalidate>
+        <ion-item class="item-input item-select">
+          <input ng-if="data.local.flowObj.flowUnit.type === 0" ng-model="data.local.flowObj.flow"
+          name="flowInput" min="0" max="999999" type="number" placeholder="{{data.local.placeholder | translate}}"
+          required></input>
+          <input ng-if="data.local.flowObj.flowUnit.type === 1" ng-model="data.local.flowObj.flow"
+          name="flowInput" min="0" max="99999" type="number" placeholder="{{data.local.placeholder | translate}}"
+          required></input>
+          <input ng-if="data.local.flowObj.flowUnit.type === 2" ng-model="data.local.flowObj.flow"
+          name="flowInput" min="0" max="9999" type="number" placeholder="{{data.local.placeholder | translate}}"
+          required></input>
+          <select ng-model="data.local.flowObj.flowUnit" ng-options="flowUnit.name for flowUnit in data.local.FLOW_UNITS"></select>
+        </ion-item>
+        <div ng-if="flow.form.flowInput.$dirty" ng-messages="flow.form.flowInput.$error">
+          <div ng-message="required">
+            <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+          </div>
+          <div ng-message="number || min || max">
+            <span ng-if="data.local.flowObj.flowUnit.type === 0" class="item-alert" translate="DATA_USAGE.CONTENT.MAX_KB_ERROR"></span>
+            <span ng-if="data.local.flowObj.flowUnit.type === 1" class="item-alert" translate="DATA_USAGE.CONTENT.MAX_MB_ERROR"></span>
+            <span ng-if="data.local.flowObj.flowUnit.type === 2" class="item-alert" translate="DATA_USAGE.CONTENT.MAX_GB_ERROR"></span>
+          </div>
+        </div>
+      </ng-form>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-dataUsage-time.html" type="text/ng-template">
+  <ion-view view-title="{{data.local.title | translate}}">
+    <ion-nav-buttons side="right">
+      <button ng-disabled="time.form.$invalid || (data.local.timeObj.time === data.backup.timeObj.time && data.local.timeObj.timeUnit.type === data.backup.timeObj.timeUnit.type)"
+      ng-click="action.submit()" class="button button-icon" translate="COMMON.CONTENT.SAVE">
+      </button>
+    </ion-nav-buttons>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ng-form name="time.form" novalidate>
+        <ion-item class="item-input item-select">
+          <input ng-if="data.local.timeObj.timeUnit.type === 0" ng-model="data.local.timeObj.time"
+          name="timeInput" min="0" max="44640" type="number" placeholder="{{data.local.placeholder | translate}}"
+          required></input>
+          <input ng-if="data.local.timeObj.timeUnit.type === 1" ng-model="data.local.timeObj.time"
+          name="timeInput" min="0" max="744" type="number" placeholder="{{data.local.placeholder | translate}}"
+          required></input>
+          <input ng-if="data.local.timeObj.timeUnit.type === 2" ng-model="data.local.timeObj.time"
+          name="timeInput" min="0" max="31" type="number" placeholder="{{data.local.placeholder | translate}}"
+          required></input>
+          <select ng-model="data.local.timeObj.timeUnit" ng-options="timeUnit.name | translate for timeUnit in data.local.TIME_UNITS"></select>
+        </ion-item>
+        <div ng-if="time.form.timeInput.$dirty" ng-messages="time.form.timeInput.$error">
+          <div ng-message="required">
+            <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+          </div>
+          <div ng-message="number || min || max">
+            <span ng-if="data.local.timeObj.timeUnit.type === 0" class="item-alert" translate="DATA_USAGE.CONTENT.MAX_MINUTE_ERROR"></span>
+            <span ng-if="data.local.timeObj.timeUnit.type === 1" class="item-alert" translate="DATA_USAGE.CONTENT.MAX_HOUR_ERROR"></span>
+            <span ng-if="data.local.timeObj.timeUnit.type === 2" class="item-alert" translate="DATA_USAGE.CONTENT.MAX_DAY_ERROR"></span>
+          </div>
+        </div>
+      </ng-form>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-dataUsage-usageAlert.html" type="text/ng-template">
+  <ion-view view-title="{{'DATA_USAGE-USAGE_ALERT.TITLE' | translate}}">
+    <ion-nav-buttons side="right">
+      <button ng-disabled="data.local.warningPercent.type === data.backup.warningPercent.type"
+      ng-click="action.submit()" class="button button-icon" translate="COMMON.CONTENT.SAVE"></button>
+    </ion-nav-buttons>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ion-item class="item-select">
+        <span translate="DATA_USAGE-USAGE_ALERT.TITLE"></span>
+        <select ng-model="data.local.warningPercent" ng-options="warningPercent.name for warningPercent in data.local.warningPercents"></select>
+      </ion-item>
+    </ion-content>
+  </ion-view>
+</script>

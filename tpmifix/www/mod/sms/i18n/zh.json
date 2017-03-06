@@ -1,0 +1,30 @@
+{
+	"SMS": {
+		"TITLE": "短信",
+		"DESCRIPTION": "短信页面",
+		"CONTENT": {
+			"COMPOSE": "写短信",
+			"NO_SIM": "无SIM卡",
+			"NO_SMS": "没有短信",
+			"DELETE_NONE_WARN": "请至少选择一条要删除的短信。"
+		}
+	},
+	"SMS-COMPOSE": {
+		"TITLE": "写短信",
+		"DESCRIPTION": "写短信页面",
+		"CONTENT": {
+			"SEND": "发送",
+			"TO": "收件人:",
+			"NUMBER_INVALID": "电话号码非法，请确保它们全是数字或以“+”号开头接数字。",
+			"SUCCESS": "发送成功",
+			"FAIL": "发送失败"
+		}
+	},
+	"SMS-DETAIL": {
+		"TITLE": "详情",
+		"DESCRIPTION": "短信详情页面",
+		"CONTENT": {
+			"REPLY": "回复"
+		}
+	}
+}

@@ -1,0 +1,64 @@
+{
+	"CLIENT_LIST": {
+		"TITLE": "Wi-Fi Users",
+		"DESCRIPTION": "Connected devices and MAC filter",
+		"CONTENT": {
+			"WHITE_LIST": "White list",
+			"ON": "On",
+			"OFF": "Off",
+			"MY_DEVICE": "My device",
+			"CONN_DEVICE": "Online devices",
+			"NO_CONN_DEVICE": "No more online devices yet.",
+			"UNKNOWN_DEVICE": "Unknown device "
+		}
+	},
+	"CLIENT_LIST-WHITE_LIST": {
+		"TITLE": "White List",
+		"DESCRIPTION": "White list",
+		"CONTENT": {
+			"WHITE_LIST_MODE": "White list mode",
+			"ENABLE_CONFIRM": "Note: When this function is enabled, only clients with MAC addresses in the list will be allowed to access the router's Wi-Fi network. At most 10 MAC addresses can be added to the list.",
+			"ADD_MANUAL": "Manually add",
+			"ADD_CONN_DEVICES": "Add from connected devices",
+			"WHITE_LIST_DEVICE": "White list devices",
+			"NO_WHITE_LIST_DEVICE": "No white list devices yet",
+			"DELETE_CONFIRM": "Are you sure to delete the device from white list?",
+			"DELETE_MY_DEVICE_CONFIRM": "Are you sure to delete \"My device\" from white list? If continue, you will not be able to connect to the router's Wi-Fi.",
+			"ONLINE": "(online)",
+			"OFFLINE": "(offline)",
+			"TOP_NUMBER_ERROR": "At most 10 MAC addresses can be added!"
+		}
+	},
+	"CLIENT_LIST-RENAME_DEVICE": {
+		"TITLE": "Device Management",
+		"DESCRIPTION": "Device management",
+		"CONTENT": {
+			"RENAME": "Rename",
+			"ENTER_NEW_NAME": "Enter a new name",
+			"NO_CHANGE": "Device name no change.",
+			"RENAME_FAILED": "Failed to rename device! Please try again later."
+		}
+	},
+	"CLIENT_LIST-LIST_DEVICE": {
+		"TITLE": "Connected Devices",
+		"DESCRIPTION": "Connected devices",
+		"CONTENT": {
+			"LIST_DEVICE": "Connected devices",
+			"NO_LIST_DEVICE": "No connected devices yet",
+			"ADDED": "Added"
+		}
+	},
+	"CLIENT_LIST-ADD_DEVICE": {
+		"TITLE": "Manually Add",
+		"DESCRIPTION": "Manually add",
+		"CONTENT": {
+			"DEVICE_NAME": "Name",
+			"DEVICE_MAC": "MAC",
+			"ENTER_DEVICE_NAME": "Enter device name",
+			"ENTER_MAC": "Enter device's MAC address",
+			"MAC_ERROR": "Invalid MAC address",
+			"MAC_EXIST_ERROR": "The MAC address already exists",
+			"FIND_MAC_HINT": "You can find the MAC address in your device's settings."
+		}
+	}
+}

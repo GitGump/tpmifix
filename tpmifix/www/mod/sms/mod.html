@@ -1,0 +1,130 @@
+<ion-view view-title="{{'SMS.TITLE' | translate}}" hide-back-button="sms.data.local.isEditing">
+  <ion-nav-title>
+    <div ng-if="!sms.data.local.isEditing">
+      <span translate="SMS.TITLE"></span>
+    </div>
+    <div ng-if="sms.data.local.isEditing">
+      <span>{{(sms.data.local.selectedCount)}}</span>
+      <span class="button-small">{{"/" + sms.data.local.list.length}}</span>
+    </div>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <div ng-if="sms.data.local.isEditing">
+      <button class="button button-icon ion-ios-checkmark-outline" ng-class="{true:'ion-ios-checkmark-outline', false:'ion-ios-circle-outline'}[sms.data.local.isAllSelected]"
+      ng-click="sms.action.switchSelectAll()">
+      </button>
+    </div>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button ng-if="sms.data.local.isEditing" ng-click="sms.action.closeEdit()" class="button button-icon"
+    translate="COMMON.CONTENT.CANCEL">
+    </button>
+    <button ng-if="!sms.data.local.isEditing && sms.data.local.list.length!=0" ng-click="sms.action.openEdit()"
+    class="button button-icon" translate="COMMON.CONTENT.EDIT">
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="gray-bg padding-top sms-bottom" scroll="true">
+    <ion-list ng-if="sms.data.local.list.length!=0" can-swipe="!sms.data.local.isEditing">
+      <ion-item class="card" ng-repeat="item in sms.data.local.list" index="{{$index}}">
+        <sms-checkbox show="sms.data.local.isEditing" checked="sms.data.local.list[$index].checked"
+        all-checked="sms.action.isAllSelected()">
+          <div class="vertical-top inline"><i class="icon ion-record" ng-class="{true:'balanced',false:'light'}[item.unread==true]"></i>
+          </div>
+          <div class="sms-middle inline" ng-click="tpService.linkService.gotoMod('sms-detail', {smsListIndex:$index})">
+            <div>
+              <span class="sms-from">{{item.from}}</span>
+              <span class="sms-time">{{item.receivedTime}}</span>
+            </div>
+            <p class="sms-digest">{{item.content}}</p>
+          </div>
+        </sms-checkbox>
+        <ion-option-button class="button-assertive" translate="COMMON.CONTENT.DELETE" ng-click="sms.action.delete($index)"></ion-option-button>
+        <ion-delete-button class="ion-minus-circled">
+        </ion-delete-button>
+      </ion-item>
+    </ion-list>
+    <p translate="SMS.CONTENT.NO_SMS" class="text-center dark sms-no" ng-if="sms.data.local.list.length==0"></p>
+    <ion-infinite-scroll ng-show="sms.data.local.canLoadMoreFlag" on-infinite="sms.action.loadMore()"
+    distance="1%"></ion-infinite-scroll>
+  </ion-content>
+  <!-- compose footbar -->
+  <ion-footer-bar align-title="center" class="bar-light footer-bar-higher show" ng-show="!sms.data.local.isEditing">
+    <div ng-click="sms.action.jumpToCompose();">
+      <a class="button center-block icon ion-compose button-clear button-positive"></a>
+      <div class="text-center" translate="SMS.CONTENT.COMPOSE"></div>
+    </div>
+  </ion-footer-bar>
+  <!-- select all footbar -->
+  <ion-footer-bar align-title="center" class="bar-light footer-bar-higher show" ng-show="sms.data.local.isEditing">
+    <div class="row row-no-padding">
+      <div class="col" ng-click="sms.action.delete()">
+        <div>
+          <a class="button center-block icon ion-trash-a button-clear button-assertive"></a>
+          <div class="text-center" id="SMS-BTN-DELETE" translate="COMMON.CONTENT.DELETE"></div>
+        </div>
+      </div>
+    </div>
+  </ion-footer-bar>
+</ion-view>
+
+<!-- compose html -->
+<script id="mod-sms-compose.html" type="text/ng-template">
+  <ion-view view-title="{{'SMS-COMPOSE.TITLE' | translate}}">
+    <ion-nav-buttons side="right">
+      <button ng-disabled="smsCompose.form.$invalid" ng-click="smsCompose.action.send()"
+      class="button button-icon" translate="SMS-COMPOSE.CONTENT.SEND">
+      </button>
+    </ion-nav-buttons>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ng-form name="smsCompose.form">
+        <div class="list list-inset gray-bg">
+          <label class="item item-input">
+            <span class="input-label sms-receiver" translate="SMS-COMPOSE.CONTENT.TO"></span>
+            <input name="to" type="text" ng-model="smsCompose.data.local.to" required check-phone-number>
+          </label>
+          <div ng-show='smsCompose.form.to.$dirty' ng-messages='smsCompose.form.to.$error'>
+            <div ng-message='required'>
+              <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+            </div>
+            <div ng-message='checkPhoneNumber'>
+              <span class="item-alert" translate="SMS-COMPOSE.CONTENT.NUMBER_INVALID"></span>
+            </div>
+          </div>
+          <label ng-hide="smsCompose.form.to.$invalid && smsCompose.form.to.$dirty" class="item item-divider">
+          </label>
+          <label class="item">
+            <textarea class="full sms-content" rows="15" name="content" ng-model="smsCompose.data.local.content"
+            required></textarea>
+          </label>
+          <div ng-show='smsCompose.form.content.$dirty' ng-messages='smsCompose.form.content.$error'>
+            <div ng-message="required">
+              <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+            </div>
+          </div>
+        </div>
+      </ng-form>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-sms-detail.html" type="text/ng-template">
+  <ion-view view-title="{{smsDetail.data.local.detail.from}}">
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <div class="card">
+        <div class="item text-center sms-grey">
+          {{smsDetail.data.local.detail.receivedTime}}
+        </div>
+        <div class="item">
+          <textarea class="full sms-content" rows="15" name="content" ng-model="smsDetail.data.local.detail.content"
+          readonly></textarea>
+        </div>
+      </div>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="bar-light footer-bar-higher show">
+      <div ng-click="smsDetail.action.jumpToCompose();">
+        <a class="button center-block icon ion-compose button-clear button-positive"></a>
+        <div class="text-center" translate="SMS-DETAIL.CONTENT.REPLY"></div>
+      </div>
+    </ion-footer-bar>
+  </ion-view>
+</script>

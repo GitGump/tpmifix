@@ -1,0 +1,124 @@
+{
+	"NETWORK": {
+		"TITLE": "上网设置",
+		"DESCRIPTION": "拨号设置和PIN码管理",
+		"CONTENT": {
+			"DIALUP_TYPE": "拨号类型",
+			"CONNECT": "连接",
+			"MANUAL": "手动",
+			"AUTO": "自动",
+			"CONNECT_FAIL": "无法连接网络，请稍后重试",
+			"DATA_ROAMING": "数据漫游",
+			"NETWORK_MODE": "网络模式",
+			"2G_ONLY": "仅2G",
+			"3G_ONLY": "仅3G",
+			"2G_3G": "2G和3G (3G 优先)",
+			"4G_ONLY": "仅4G",
+			"4G_PREFER": "4G优先",
+			"APN_MANAGEMENT": "APN管理",
+			"PIN_MANAGEMENT": "PIN码管理",
+			"VERIFY_SIM_CARD": "请检查SIM卡",
+			"DETECT_SIM_CARD_ERROR": "无法检测到SIM卡",
+			"SIM_CARD_ERROR": "SIM卡错误",
+			"SIM_CARD_BLOCKED": "SIM卡已被禁用",
+			"DATA_LIMIT_EXCEED": "已用流量超出限额，网络已断开",
+			"TIME_LIMIT_EXCEED": "已用时间超出限额，网络已断开"
+		}
+	},
+	"NETWORK-DIALUP_TYPE": {
+		"TITLE": "拨号类型",
+		"DESCRIPTION": "拨号类型选择",
+		"CONTENT": {
+			"MANUAL": "手动",
+			"SET_MANUAL_FAIL": "无法切换为手动模式",
+			"AUTO": "自动",
+			"SET_AUTO_FAIL": "无法切换为自动模式"
+		}
+	},
+	"NETWORK-NETWORK_MODE": {
+		"TITLE": "网络模式",
+		"DESCRIPTION": "网络模式选择",
+		"CONTENT": {
+			"2G_ONLY": "仅2G",
+			"3G_ONLY": "仅3G",
+			"2G_3G": "2G和3G (3G 优先)",
+			"4G_ONLY": "仅4G",
+			"4G_PREFER": "4G优先"
+		}
+	},
+	"NETWORK-APN_MANAGE": {
+		"TITLE": "APN管理",
+		"DESCRIPTION": "APN管理",
+		"CONTENT": {
+			"DEFAULT": "（默认）",
+			"SELECT_APN_ERROR": "无法选择APN",
+			"TOP_NUMBER_WARNING": "您最多只能创建8个配置文件",
+			"DELETE_APN_CONFIRM": "确定要删除此APN吗？"
+		}
+	},
+	"NETWORK-ADD_APN": {
+		"TITLE": "APN管理",
+		"DESCRIPTION": "APN管理",
+		"CONTENT": {
+			"CARRIER": "运营商",
+			"ENTER_CARRIER": "请输入运营商名称",
+			"APN_TYPE": "APN类型",
+			"STATIC": "静态",
+			"DYNAMIC": "动态",
+			"APN": "APN",
+			"ENTER_APN": "请输入APN",
+			"USERNAME": "用户名",
+			"ENTER_USERNAME": "请输入用户名",
+			"PASSWORD": "密码",
+			"ENTER_PASSWORD": "请输入密码",
+			"SET_APN_ERROR": "无法设置APN",
+			"PROFILE_EXIST": "该配置文件已存在，请重新命名",
+			"PROFILE_END_ERROR": "配置名不能以 '(D)' 结尾",
+			"PROFILE_ERROR": "输入包含了单引号、双引号、空格、中文等非法字符"
+		}
+	},
+	"NETWORK-PIN_MANAGE": {
+		"TITLE": "PIN码管理",
+		"DESCRIPTION": "PIN码管理",
+		"CONTENT": {
+			"PIN": "PIN码",
+			"ENTER_PIN": "请输入PIN码",
+			"REMAINING_ATTEMPT": "剩余尝试次数：",
+			"WRONG_PIN": "PIN码错误。剩余尝试次数：",
+			"WRONG_PIN_ERROR": "PIN码错误",
+			"PIN_PATTERN_ERROR": "PIN码必须是4到8位数",
+			"GET_PIN_ERROR": "无法获取PIN状态",
+			"CHANGE_PIN": "修改PIN码"
+		}
+	},
+	"NETWORK-CHANGE_PIN": {
+		"TITLE": "修改PIN码",
+		"DESCRIPTION": "修改PIN码",
+		"CONTENT": {
+			"CURRENT_PIN": "当前PIN码",
+			"ENTER_CURRENT_PIN": "请输入当前PIN码",
+			"NEW_PIN": "新PIN码",
+			"ENTER_NEW_PIN": "请输入新PIN码",
+			"REMAINING_ATTEMPT": "剩余尝试次数：",
+			"WRONG_PIN_ERROR": "当前PIN码错误",
+			"INVALID_PIN_ERROR": "保存失败！请确认当前PIN码输入合法",
+			"PIN_PATTERN_ERROR": "PIN码必须是4到8位数"
+		}
+	},
+	"NETWORK-PUK_UNLOCK": {
+		"TITLE": "输入PUK码",
+		"DESCRIPTION": "PUK码管理",
+		"CONTENT": {
+			"PUK": "PUK码",
+			"ENTER_PUK": "请输入PUK码",
+			"NEW_PIN": "新PIN码",
+			"ENTER_NEW_PIN": "请输入新PIN码",
+			"PIN_LOCKED": "PIN码被锁定，请输入PUK码解锁",
+			"REMAINING_ATTEMPT": "剩余尝试次数：",
+			"WRONG_PUK": "PUK码错误",
+			"PUK_PATTERN_ERROR": "PUK码必须是8位数",
+			"PIN_PATTERN_ERROR": "PIN码必须是4到8位数",
+			"SIM_CARD_BLOCKED": "SIM卡已被禁用"
+		}
+	}
+}

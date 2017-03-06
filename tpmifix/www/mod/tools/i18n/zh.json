@@ -1,0 +1,23 @@
+{
+	"TOOLS": {
+		"TITLE": "系统工具",
+		"DESCRIPTION": "重启，关机，恢复出厂设置",
+		"CONTENT": {
+			"REBOOT": "重启",
+			"REBOOT_CONFIRM": "确认要重启路由器吗？",
+			"REBOOT_LOADING": "正在重启，请稍候...",
+			"REBOOT_SUCC": "重启成功",
+			"REBOOT_FAIL": "无法重启！请稍后重试",
+			"POWEROFF": "关机",
+			"POWEROFF_CONFIRM": "确认关闭路由器吗？",
+			"POWEROFF_LOADING": "正在关机，请稍后...",
+			"POWEROFF_SUCC": "关机成功",
+			"POWEROFF_FAIL": "无法关机！请稍后重试",
+			"RESTORE": "恢复出厂设置",
+			"RESTORE_CONFIRM": "恢复出厂设置后需重启路由器，是否继续？",
+			"RESTORE_LOADING": "正在恢复出厂设置，请稍候...",
+			"RESTORE_SUCC": "恢复出厂设置成功",
+			"RESTORE_FAIL": "无法恢复出厂设置！请稍后重试"
+		}
+	}
+}

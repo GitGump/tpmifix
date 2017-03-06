@@ -1,0 +1,17 @@
+{
+	"mod": "battery",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "Battery",
+			"description": "Battery settings",
+			"icon": "battery.png"
+		},
+		"zh": {
+			"title": "电量",
+			"description": "电池电量管理",
+			"icon": "battery.png"
+		},
+		"location": "gridMenu"
+	}
+}

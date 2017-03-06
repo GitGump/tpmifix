@@ -1,0 +1,20 @@
+{
+	"ACCOUNT": {
+		"TITLE": "账号管理",
+		"DESCRIPTION": "账户管理页面",
+		"CONTENT": {
+			"MODIFY_PASSWORD": "修改登录密码",
+			"OLD_PASSWORD": "当前密码",
+			"OLD_PASSWORD_HINT": "请输入当前密码",
+			"INCORRECT_OLD_PASSWORD": "当前密码错误",
+			"NEW_PASSWORD": "新密码",
+			"NEW_PASSWORD_HINT": "请设置新密码",
+			"INVALID_PASSWORD": "新密码长度为6到15位字符，可包含英文、数字、中划线或下划线",
+			"STRENGTH_STRONG": "密码强度：强",
+			"STRENGTH_MIDDLE": "密码强度：中",
+			"STRENGTH_WEAK": "密码强度：弱",
+			"MODIFY_OK": "修改密码成功",
+			"MODIFY_FAIL": "修改密码失败，请稍后重试"
+		}
+	}
+}

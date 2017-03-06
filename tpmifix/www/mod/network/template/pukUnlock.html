@@ -1,0 +1,50 @@
+<ion-view hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button ng-click="tpService.linkService.goBackHome()" class="button back-button button-clear header-item">
+      <i class="icon" ng-class="{true:'ion-android-arrow-back', false:'ion-ios-arrow-back'}[tpService.serviceValue.ionicPlatform.isAndroid]"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-title translate="NETWORK-PUK_UNLOCK.TITLE">
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button ng-disabled="pukUnlock.form.$invalid" ng-click="action.confirm()" class="button button-icon"
+    translate="COMMON.CONTENT.CONFIRM"></button>
+  </ion-nav-buttons>
+  <ion-content class="gray-bg padding-top">
+    <ng-form name="pukUnlock.form" novalidate>
+      <span class="list-title" translate="NETWORK-PUK_UNLOCK.CONTENT.PIN_LOCKED"></span>
+      <ion-list>
+        <ion-item class="item-input">
+          <span class="input-label" translate="NETWORK-PUK_UNLOCK.CONTENT.PUK"></span>
+          <input ng-model="data.local.puk" name="puk" type="text" placeholder="{{'NETWORK-PUK_UNLOCK.CONTENT.ENTER_PUK' | translate}}"
+          required check-network-puk></input>
+        </ion-item>
+        <div ng-if="pukUnlock.form.puk.$dirty" ng-messages="pukUnlock.form.puk.$error">
+          <div ng-message="required">
+            <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+          </div>
+          <div ng-message="checkNetworkPUK">
+            <span class="item-alert" translate="NETWORK-PUK_UNLOCK.CONTENT.PUK_PATTERN_ERROR"></span>
+          </div>
+        </div>
+        <ion-item class="item-input">
+          <span class="input-label" translate="NETWORK-PUK_UNLOCK.CONTENT.NEW_PIN"></span>
+          <input ng-model="data.local.newPin" name="newPin" type="text" placeholder="{{'NETWORK-PUK_UNLOCK.CONTENT.ENTER_NEW_PIN' | translate}}"
+          required check-network-pin></input>
+        </ion-item>
+        <div ng-if="pukUnlock.form.newPin.$dirty" ng-messages="pukUnlock.form.newPin.$error">
+          <div ng-message="required">
+            <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+          </div>
+          <div ng-message="checkNetworkPIN">
+            <span class="item-alert" translate="NETWORK-PUK_UNLOCK.CONTENT.PIN_PATTERN_ERROR"></span>
+          </div>
+        </div>
+      </ion-list>
+      <span class="list-info">
+        {{'NETWORK-PUK_UNLOCK.CONTENT.REMAINING_ATTEMPT' | translate}}
+        <span class="assertive">{{data.local.pukTimes}}</span>
+      </span>
+    </ng-form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,44 @@
+<ion-view view-title="{{'WIFI.TITLE' | translate}}">
+  <ion-nav-buttons side="right">
+    <button ng-disabled="wifi.form.$invalid || tpUtil.diffUtil.isAllEqual(data.server.wlan, data.backup.wlan)"
+    ng-click="action.submit()" class="button button-icon" translate="COMMON.CONTENT.SAVE">
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="gray-bg padding-top" scroll="true">
+    <ng-form name="wifi.form" novalidate>
+      <ion-list>
+        <ion-item class="item-input">
+          <span class="input-label" translate="WIFI.CONTENT.SSID"></span>
+          <input ng-model="data.server.wlan.ssid" name="ssid" type="text" placeholder="{{'WIFI.CONTENT.SSID_HINT' | translate}}"
+          required check-wlan-ssid></input>
+        </ion-item>
+        <div ng-show='wifi.form.ssid.$dirty' ng-messages='wifi.form.ssid.$error'>
+          <div ng-message='required'>
+            <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+          </div>
+          <div ng-message='checkWlanSSID'>
+            <span class="item-alert" translate="WIFI.CONTENT.INVALID_SSID"></span>
+          </div>
+        </div>
+        <ion-item class="item-input">
+          <span class="input-label" translate="WIFI.CONTENT.PASSWORD"></span>
+          <input ng-model="data.server.wlan.mixed.key" name="password" type="text" placeholder="{{'WIFI.CONTENT.PASSWORD_HINT' | translate}}"
+          check-wlan-password></input>
+        </ion-item>
+        <div ng-show='wifi.form.password.$dirty' ng-messages='wifi.form.password.$error'>
+          <div ng-message='checkWlanPassword'>
+            <span class="item-alert" translate="WIFI.CONTENT.INVALID_PASSWORD"></span>
+          </div>
+        </div>
+        <ion-item class="item-select">
+          <span translate="WIFI.CONTENT.BAND"></span>
+          <select ng-model="data.local.band" ng-options="band.name | translate for band in data.local.bands"
+          ng-change="action.changeBand()"></select>
+        </ion-item>
+        <ion-toggle ng-model="data.local.isHideSSID" toggle-class="toggle-positive" ng-change="action.hideSSID()">
+          <span translate="WIFI.CONTENT.HIDE_SSID"></span>
+        </ion-toggle>
+      </ion-list>
+    </ng-form>
+  </ion-content>
+</ion-view>

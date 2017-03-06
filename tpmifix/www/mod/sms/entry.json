@@ -1,0 +1,17 @@
+{
+	"mod": "sms",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "SMS",
+			"description": "Send and check sms",
+			"icon": "sms.png"
+		},
+		"zh": {
+			"title": "短信",
+			"description": "发送和查看短信",
+			"icon": "sms.png"
+		},
+		"location": "gridMenu"
+	}
+}

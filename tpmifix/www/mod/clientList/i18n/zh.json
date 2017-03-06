@@ -1,0 +1,64 @@
+{
+	"CLIENT_LIST": {
+		"TITLE": "已连设备",
+		"DESCRIPTION": "已连设备与MAC地址过滤",
+		"CONTENT": {
+			"WHITE_LIST": "白名单",
+			"ON": "开启",
+			"OFF": "关闭",
+			"MY_DEVICE": "本台设备",
+			"CONN_DEVICE": "已连设备",
+			"NO_CONN_DEVICE": "暂无更多已连设备。",
+			"UNKNOWN_DEVICE": "未知设备"
+		}
+	},
+	"CLIENT_LIST-WHITE_LIST": {
+		"TITLE": "白名单",
+		"DESCRIPTION": "白名单",
+		"CONTENT": {
+			"WHITE_LIST_MODE": "白名单模式",
+			"ENABLE_CONFIRM": "注意：开启白名单模式后，仅允许对应名单中MAC地址的客户端接入，最多可以添加10个设备。",
+			"ADD_MANUAL": "手动添加",
+			"ADD_CONN_DEVICES": "从曾连设备中添加",
+			"WHITE_LIST_DEVICE": "白名单设备",
+			"NO_WHITE_LIST_DEVICE": "暂无白名单设备",
+			"DELETE_CONFIRM": "确定要将该设备从白名单中删除吗？",
+			"DELETE_MY_DEVICE_CONFIRM": "将“本台设备”从白名单中删除将导致本机无法连上路由器的Wi-Fi！",
+			"ONLINE": "（在线）",
+			"OFFLINE": "（离线）",
+			"TOP_NUMBER_ERROR": "最多可以添加10个设备。"
+		}
+	},
+	"CLIENT_LIST-RENAME_DEVICE": {
+		"TITLE": "设备管理",
+		"DESCRIPTION": "设备管理",
+		"CONTENT": {
+			"RENAME": "重命名",
+			"ENTER_NEW_NAME": "输入新名称",
+			"NO_CHANGE": "设备名称无修改。",
+			"RENAME_FAILED": "无法修改设备名称！请稍后重试。"
+		}
+	},
+	"CLIENT_LIST-LIST_DEVICE": {
+		"TITLE": "曾连设备",
+		"DESCRIPTION": "曾连设备",
+		"CONTENT": {
+			"LIST_DEVICE": "曾连设备",
+			"NO_LIST_DEVICE": "暂无曾连设备",
+			"ADDED": "已添加"
+		}
+	},
+	"CLIENT_LIST-ADD_DEVICE": {
+		"TITLE": "手动添加",
+		"DESCRIPTION": "手动添加",
+		"CONTENT": {
+			"DEVICE_NAME": "名称",
+			"DEVICE_MAC": "MAC",
+			"ENTER_DEVICE_NAME": "输入设备的名称",
+			"ENTER_MAC": "输入设备的MAC地址",
+			"MAC_ERROR": "MAC地址格式错误，请核对后再输入",
+			"MAC_EXIST_ERROR": "MAC地址重复，请核对后再输入",
+			"FIND_MAC_HINT": "可以在手机设置里查询手机的MAC地址"
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"mod": "introduce",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "Introducation pages",
+			"description": "introduce pages show at first time start app",
+			"icon": ""
+		},
+		"zh": {
+			"title": "介绍界面",
+			"description": "第一次打开应用显示介绍页面",
+			"icon": ""
+		},
+		"location": "hide"
+	}
+}

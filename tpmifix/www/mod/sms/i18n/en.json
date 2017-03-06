@@ -1,0 +1,30 @@
+{
+	"SMS": {
+		"TITLE": "SMS",
+		"DESCRIPTION": "sms page",
+		"CONTENT": {
+			"COMPOSE": "Compose",
+			"NO_SIM": "No SIM Card.",
+			"NO_SMS": "No message",
+			"DELETE_NONE_WARN": "Please select at least one item to delete."
+		}
+	},
+	"SMS-COMPOSE": {
+		"TITLE": "Compose",
+		"DESCRIPTION": "sms compose page",
+		"CONTENT": {
+			"SEND": "Send",
+			"TO": "To:",
+			"NUMBER_INVALID": "Invalid phone number. A phone number should contain digits only, or begin with \"+\" and followed by digits.",
+			"SUCCESS": "Send successfully.",
+			"FAIL": "Unable to send message!"
+		}
+	},
+	"SMS-DETAIL": {
+		"TITLE": "Detail",
+		"DESCRIPTION": "sms detail page",
+		"CONTENT": {
+			"REPLY": "Reply"
+		}
+	}
+}

@@ -1,0 +1,217 @@
+<ion-view view-title="{{'NETWORK.TITLE' | translate}}">
+  <ion-content class="gray-bg padding-top" scroll="true">
+    <ion-list>
+      <ion-item ng-click="tpService.linkService.gotoMod('network-dialupType')" class="item-icon-right">
+        <span translate="NETWORK.CONTENT.DIALUP_TYPE"></span>
+        <span class="item-note">{{data.local.dialUpType | translate}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-toggle ng-if="data.local.dialUpManual" ng-model="data.local.isConnected" ng-click="action.connect()"
+      toggle-class="toggle-positive">
+        <span translate="NETWORK.CONTENT.CONNECT"></span>
+      </ion-toggle>
+      <ion-toggle ng-model="data.local.isRoaming" ng-click="action.roaming()" toggle-class="toggle-positive">
+        <span translate="NETWORK.CONTENT.DATA_ROAMING"></span>
+      </ion-toggle>
+      <ion-item ng-click="tpService.linkService.gotoMod('network-networkMode')" class="item-icon-right">
+        <span translate="NETWORK.CONTENT.NETWORK_MODE"></span>
+        <span class="item-note">{{data.local.networkMode | translate}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item ng-click="tpService.linkService.gotoMod('network-apnManage')" class="item-icon-right">
+        <span translate="NETWORK.CONTENT.APN_MANAGEMENT"></span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item ng-click="action.pinManage()" class="item-icon-right mt20">
+        <span translate="NETWORK.CONTENT.PIN_MANAGEMENT"></span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
+<script id="mod-network-dialupType.html" type="text/ng-template">
+  <ion-view view-title="{{'NETWORK-DIALUP_TYPE.TITLE' | translate}}">
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ion-radio ng-click="action.submit(dialUpType)" ng-model="data.local.dialUpType"
+      ng-value="dialUpType" ng-checked="dialUpType.type === $index" ng-repeat="dialUpType in data.local.dialUpTypes">
+        <span translate="{{dialUpType.name}}"></span>
+      </ion-radio>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-network-networkMode.html" type="text/ng-template">
+  <ion-view view-title="{{'NETWORK-NETWORK_MODE.TITLE' | translate}}">
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ion-list radio-group>
+        <ion-radio ng-click="action.submit(networkMode)" ng-model="data.local.networkMode"
+        ng-value="networkMode" ng-checked="networkMode.type === $index" ng-repeat="networkMode in data.local.networkModes">
+          <span translate="{{networkMode.name}}"></span>
+        </ion-radio>
+        <ion-list>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-network-apnManage.html" type="text/ng-template">
+  <ion-view view-title="{{'NETWORK-APN_MANAGE.TITLE' | translate}}">
+    <ion-nav-buttons side="right">
+      <button ng-disabled="data.local.profileSettings.list.length >= 8" ng-click="action.addApn()"
+      class="button button-icon">
+        <i class="icon ion-android-add"></i>
+      </button>
+    </ion-nav-buttons>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ion-list can-swipe="true">
+        <ion-item class="item item-radio item-icon-right" ng-click="action.active(profile)"
+        ng-repeat="profile in data.local.profileSettings.list">
+          <input type="radio" name="radio-group" ng-model="data.local.profile" ng-value="profile"
+          ng-checked="profile.type === $index"></input>
+          <div class="radio-content">
+            <span>{{profile.profileName}}<span ng-show="profile.profileID === 0" translate="NETWORK-APN_MANAGE.CONTENT.DEFAULT"></span></span>
+            <i class="radio-icon icon ion-checkmark"></i>
+          </div>
+          <ion-option-button ng-disabled="profile.profileID === 0" class="button-positive"
+          ng-click="tpService.linkService.gotoMod('network-editApn', {profile: profile})">
+            <span translate="COMMON.CONTENT.EDIT"></span>
+          </ion-option-button>
+          <ion-option-button ng-disabled="profile.profileID === 0" class="button-assertive"
+          ng-click="action.delete(profile)">
+            <span translate="COMMON.CONTENT.DELETE"></span>
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-network-addApn.html" type="text/ng-template">
+  <ion-view view-title="{{'NETWORK-ADD_APN.TITLE' | translate}}">
+    <ion-nav-buttons side="right">
+      <button ng-disabled="apn.form.$invalid || tpUtil.diffUtil.isAllEqual(data.server.profile, data.backup.profile)"
+      ng-click="action.submit()" class="button button-icon" translate="COMMON.CONTENT.SAVE">
+      </button>
+    </ion-nav-buttons>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ng-form name="apn.form" novalidate>
+        <ion-list>
+          <ion-item class="item-input">
+            <span class="input-label" translate="NETWORK-ADD_APN.CONTENT.CARRIER"></span>
+            <input ng-model="data.server.profile.profileName" name="carrier" type="text" placeholder="{{'NETWORK-ADD_APN.CONTENT.ENTER_CARRIER' | translate}}"
+            required check-network-profile-name check-network-profile></input>
+          </ion-item>
+          <div ng-if="apn.form.carrier.$dirty" ng-messages="apn.form.carrier.$error">
+            <div ng-message="required">
+              <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+            </div>
+            <div ng-message="checkNetworkProfileName">
+              <span class="item-alert" translate="NETWORK-ADD_APN.CONTENT.PROFILE_END_ERROR"></span>
+            </div>
+            <div ng-message="checkNetworkProfile">
+              <span class="item-alert" translate="NETWORK-ADD_APN.CONTENT.PROFILE_ERROR"></span>
+            </div>
+          </div>
+          <ion-item class="item-select">
+            <span translate="NETWORK-ADD_APN.CONTENT.APN_TYPE"></span>
+            <select ng-model="data.local.profile.apnType" ng-options="apnType.name | translate for apnType in data.local.apnTypes"
+            ng-change="action.changeApnType()"></select>
+          </ion-item>
+          <ion-item ng-if="data.local.profile.apnType === data.local.apnTypes[0]" class="item-input">
+            <span class="input-label" translate="NETWORK-ADD_APN.CONTENT.APN"></span>
+            <input ng-model="data.server.profile.ipv4Apn" name="apn" type="text" placeholder="{{'NETWORK-ADD_APN.CONTENT.ENTER_APN' | translate}}"
+            required check-network-profile></input>
+          </ion-item>
+          <div ng-if="data.local.profile.apnType === data.local.apnTypes[0] && apn.form.apn.$dirty"
+          ng-messages="apn.form.apn.$error">
+            <div ng-message="required">
+              <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+            </div>
+            <div ng-message="checkNetworkProfile">
+              <span class="item-alert" translate="NETWORK-ADD_APN.CONTENT.PROFILE_ERROR"></span>
+            </div>
+          </div>
+          <ion-item class="item-input">
+            <span class="input-label" translate="NETWORK-ADD_APN.CONTENT.USERNAME"></span>
+            <input ng-model="data.server.profile.ipv4Username" name="username" type="text"
+            placeholder="{{'NETWORK-ADD_APN.CONTENT.ENTER_USERNAME' | translate}}"
+            check-network-profile></input>
+          </ion-item>
+          <div ng-messages="apn.form.username.$error">
+            <div ng-message="checkNetworkProfile">
+              <span class="item-alert" translate="NETWORK-ADD_APN.CONTENT.PROFILE_ERROR"></span>
+            </div>
+          </div>
+          <ion-item class="item-input">
+            <span class="input-label" translate="NETWORK-ADD_APN.CONTENT.PASSWORD"></span>
+            <input ng-model="data.server.profile.ipv4Password" name="password" type="password"
+            placeholder="{{'NETWORK-ADD_APN.CONTENT.ENTER_PASSWORD' | translate}}"
+            check-network-profile></input>
+          </ion-item>
+          <div ng-messages="apn.form.password.$error">
+            <div ng-message="checkNetworkProfile">
+              <span class="item-alert" translate="NETWORK-ADD_APN.CONTENT.PROFILE_ERROR"></span>
+            </div>
+          </div>
+        </ion-list>
+      </ng-form>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-network-pinManage.html" type="text/ng-template">
+  <ion-view view-title="{{'NETWORK-PIN_MANAGE.TITLE' | translate}}">
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ion-toggle ng-model="data.local.pinState" ng-click="action.simLock()" toggle-class="toggle-positive">
+        <span translate="NETWORK-PIN_MANAGE.CONTENT.PIN"></span>
+      </ion-toggle>
+      <ion-item ng-if="data.local.pinState" ng-click="tpService.linkService.gotoMod('network-changePin')"
+      class="item-icon-right">
+        <span translate="NETWORK-PIN_MANAGE.CONTENT.CHANGE_PIN"></span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-network-changePin.html" type="text/ng-template">
+  <ion-view view-title="{{'NETWORK-CHANGE_PIN.TITLE' | translate}}">
+    <ion-nav-buttons side="right">
+      <button ng-disabled="pin.form.$invalid" ng-click="action.submit()" class="button button-icon"
+      translate="COMMON.CONTENT.SAVE">
+      </button>
+    </ion-nav-buttons>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ng-form name="pin.form" novalidate>
+        <ion-list>
+          <ion-item class="item-input">
+            <span class="input-label" translate="NETWORK-CHANGE_PIN.CONTENT.CURRENT_PIN"></span>
+            <input ng-model="data.local.currentPin" name="currentPin" type="text" placeholder="{{'NETWORK-CHANGE_PIN.CONTENT.ENTER_CURRENT_PIN' | translate}}"
+            required></input>
+          </ion-item>
+          <div ng-if="pin.form.currentPin.$dirty" ng-messages="pin.form.currentPin.$error">
+            <div ng-message="required">
+              <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+            </div>
+          </div>
+          <ion-item class="item-input">
+            <span class="input-label" translate="NETWORK-CHANGE_PIN.CONTENT.NEW_PIN"></span>
+            <input ng-model="data.local.newPin" name="newPin" type="text" placeholder="{{'NETWORK-CHANGE_PIN.CONTENT.ENTER_NEW_PIN' | translate}}"
+            required check-network-pin></input>
+          </ion-item>
+          <div ng-if="pin.form.newPin.$dirty" ng-messages="pin.form.newPin.$error">
+            <div ng-message="required">
+              <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+            </div>
+            <div ng-message="checkNetworkPIN">
+              <span class="item-alert" translate="NETWORK-CHANGE_PIN.CONTENT.PIN_PATTERN_ERROR"></span>
+            </div>
+          </div>
+        </ion-list>
+        <span class="list-info">{{'NETWORK-CHANGE_PIN.CONTENT.REMAINING_ATTEMPT' | translate}}<span class="assertive">{{data.local.leftTimes}}</span></span>
+      </ng-form>
+    </ion-content>
+  </ion-view>
+</script>

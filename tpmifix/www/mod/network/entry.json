@@ -1,0 +1,17 @@
+{
+	"mod": "network",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "Network",
+			"descirption": "Wan settings and pin code",
+			"icon": "network.png"
+		},
+		"zh": {
+			"title": "上网设置",
+			"descirption": "拨号设置和PIN码管理",
+			"icon": "network.png"
+		},
+		"location": "sideMenu"
+	}
+}

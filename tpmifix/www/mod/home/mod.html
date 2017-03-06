@@ -1,0 +1,147 @@
+<!-- WARNING: if ion-view and ion-content don't exist, ion-nav-bar won't work correctly!
+Notice to use ion-view to wrap all controls, and insert blank ion-content at the head! -->
+<ion-view view-title="{{'HOME.TITLE' | translate}}" hide-nav-bar="data.local.isHome">
+  <ion-content>
+  </ion-content>
+  <ion-side-menus>
+    <!-- Center content -->
+    <ion-side-menu-content class="light">
+      <ion-header-bar class="bar-positive">
+        <button class="button button-icon" ng-click="action.toggleSideMenu()">
+          <i class="icon ion-navicon"></i>
+          <i ng-if="data.local.hasNewAppVer || data.local.hasNewFirmwareVer" class="icon ion-record danger"></i>
+        </button>
+        <h1 class="title">
+          <span ng-if="data.local.isConnect">{{data.local.status.deviceInfo.model}}</span>
+          <span ng-if="!data.local.isConnect">{{tpProtocol.protocolConstant.APP.NAME}}</span>
+        </h1>
+        <button ng-if="data.local.isConnect" class="button button-icon" ng-click="action.login()">
+          <span ng-hide="data.local.isLogin" translate="HOME.CONTENT.LOGIN">
+          </span>
+          <span ng-show="data.local.isLogin" translate="HOME.CONTENT.LOGOUT">
+          </span>
+        </button>
+      </ion-header-bar>
+      <ion-content class="home-bg h-100" ng-class="{'portrait':'portrait', 'landscape':'landscape'}[tpService.serviceValue.viewport.orientation]"
+      scroll="false">
+        <div class="home-list">
+          <div class="home-network" ng-click="action.jumpToMod('network')">
+            <div ng-if="data.server.status.wan.operator === data.local.OPERATOR.CMCC ||
+            data.server.status.wan.operator === data.local.OPERATOR.CUCC ||
+            data.server.status.wan.operator === data.local.OPERATOR.CTCC" class="text-center">
+              <h4 class="inline light">{{data.local.status.wan.operatorName}}</h4>
+              <img class="inline home-network-signal" ng-src="{{data.local.images.signalStatus}}">
+              <img class="inline home-network-connect" ng-src="{{data.local.images.networkStatus}}">
+            </div>
+            <div ng-if="data.server.status.wan.operator !== data.local.OPERATOR.CMCC &&
+            data.server.status.wan.operator !== data.local.OPERATOR.CUCC &&
+            data.server.status.wan.operator !== data.local.OPERATOR.CTCC" class="text-center">
+              <h4 ng-show="data.local.isConnect" class="light">{{data.local.simStatus}}</h4>
+            </div>
+          </div>
+          <div class="home-flowstat">
+            <div class="center-block text-center" ng-click="action.jumpToMod('dataUsage')">
+              <svg width="210" height="210">
+                <circle cx="105" cy="105" r="100" stroke="#7BC5F0" stroke-width="2" fill-opacity="0"></circle>
+                <circle ng-show="data.local.isConnect && data.server.settings.enableDataLimit && data.server.settings.dataLimit === data.local.DataLimitStatus.EXCEED"
+                cx="105" cy="105" r="100" stroke="#ef473a" stroke-width="4" fill-opacity="0"></circle>
+                <path ng-show="data.local.isConnect && data.server.settings.enableDataLimit && data.server.settings.dataLimit !== data.local.DataLimitStatus.EXCEED"
+                ng-attr-d="M 105 5 A 100 100 0 {{data.local.flowstat.flag}} 1 {{data.local.flowstat.usedX}} {{data.local.flowstat.usedY}}"
+                stroke-width="4" stroke="{{data.local.flowstat.circleColor}}" fill-opacity="0"></path>
+                <circle ng-show="data.local.isConnect && data.server.settings.enableDataLimit && data.server.settings.dataLimit !== data.local.DataLimitStatus.EXCEED"
+                ng-attr-cx="{{data.local.flowstat.usedX}}" ng-attr-cy="{{data.local.flowstat.usedY}}"
+                r="5" fill="{{data.local.flowstat.circleColor}}">
+                  <!-- <set attributeName="visibility" attributeType="CSS" to="visible" begin="2s" /> -->
+                </circle>
+              </svg>
+              <div ng-if="data.local.isConnect" class="mt-140" ng-class="{true:'', false:'padding-top'}[data.server.settings.enableDataLimit]">
+                <div class="flex">
+                  <h1 class="text-right light {{data.local.flowstat.usedPadding}}">{{data.local.flowstat.used}}</h1>
+                  <div class="text-left pl10">
+                    <span class="show">{{data.local.flowstat.usedUnit.name | translate}}</span>
+                    <span translate="HOME.CONTENT.DATA_USAGE.USED"></span>
+                  </div>
+                </div>
+                <div ng-if="data.server.settings.enableDataLimit" class="mt-10">
+                  <h4 class="light inline" translate="HOME.CONTENT.DATA_USAGE.TOTAL"></h4>
+                  <span>{{data.local.flowstat.total + ' ' + (data.local.flowstat.totalUnit.name | translate)}}</span>
+                </div>
+              </div>
+              <div ng-if="!data.local.isConnect" class="text-center mt-140">
+                <div class="center-block w-80">
+                  <h4 class="light" translate="HOME.CONTENT.DEVICE"></h4>
+                  <h4 class="light" translate="HOME.CONTENT.DISCONNECTED"></h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-grid">
+          <div class="inline home-grid-member home-grid-member-left" ng-click="action.jumpToMod('battery')">
+            <div class="home-grid-member-icon">
+              <img class="home-grid-member-icon-img" ng-src="{{data.local.images.batteryStatus}}">
+            </div>
+            <div class="home-grid-member-content">
+              <span class="light home-grid-member-title" ng-class="{true:'', false:'padding-top'}[data.local.isConnect]"
+              translate="HOME.CONTENT.BATTERY.TITLE"></span>
+              <p ng-show="data.local.isConnect" class="stable home-grid-member-detail" translate="HOME.CONTENT.BATTERY.DETAIL"
+              translate-values='{number: data.local.status.battery.voltage}'></p>
+            </div>
+          </div>
+          <div class="inline home-grid-member home-grid-member-right" ng-click="action.jumpToMod('clientList')">
+            <div class="home-grid-member-icon">
+              <img class="home-grid-member-icon-img" ng-src="{{data.local.images.clientList}}">
+            </div>
+            <div class="home-grid-member-content">
+              <span class="light home-grid-member-title" ng-class="{true:'', false:'padding-top'}[data.local.isConnect]"
+              translate="HOME.CONTENT.WIFI_USERS.TITLE"></span>
+              <p ng-show="data.local.isConnect" class="stable home-grid-member-detail" translate="HOME.CONTENT.WIFI_USERS.DETAIL"
+              translate-values='{number: data.local.status.connectedDevices.number}'></p>
+            </div>
+          </div>
+          <div class="inline home-grid-member home-grid-member-left" ng-click="action.jumpToMod('sms')">
+            <div class="home-grid-member-icon">
+              <img class="home-grid-member-icon-img" ng-src="{{data.local.images.sms}}">
+            </div>
+            <div class="home-grid-member-content">
+              <span class="light home-grid-member-title" ng-class="{true:'', false:'padding-top'}[data.local.isConnect]"
+              translate="HOME.CONTENT.SMS.TITLE"></span>
+              <p ng-show="data.local.isConnect" class="stable home-grid-member-detail" translate="HOME.CONTENT.SMS.DETAIL"
+              translate-values='{number: data.local.status.message.unreadMessages}'></p>
+            </div>
+          </div>
+          <div class="inline home-grid-member home-grid-member-right" ng-click="action.jumpToMod('sdcard')">
+            <div class="home-grid-member-icon">
+              <img class="home-grid-member-icon-img" ng-src="{{data.local.images.storageSharing}}">
+            </div>
+            <div class="home-grid-member-content">
+              <span class="light home-grid-member-title" ng-class="{true:'', false:'padding-top'}[data.local.isConnect]"
+              translate="HOME.CONTENT.SD_SHARING.TITLE"></span>
+              <p ng-show="data.local.isConnect" class="stable home-grid-member-detail">{{data.local.status.sdcard.detail}}</p>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </ion-side-menu-content>
+    <!-- Left menu -->
+    <ion-side-menu side="left">
+      <ion-header-bar class="bar-positive">
+        <h1 class="title">
+          <span translate="HOME.CONTENT.MENU"></span>
+        </h1>
+      </ion-header-bar>
+      <ion-content>
+        <ion-list>
+          <ion-item ng-repeat="menu in tpService.serviceValue.menus.sideMenus" class="item-icon-left item-icon-right"
+          ng-click="action.jumpToMod(menu.link)">
+            <i ng-if="(menu.link == 'device' && data.local.hasNewFirmwareVer) || (menu.link == 'about' && data.local.hasNewAppVer)"
+            class="icon ion-record assertive"></i>
+            <img class="item-icon" ng-src="{{menu.icon}}"></img>
+            {{menu.title}}
+            <i class="icon ion-chevron-right"></i>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-side-menu>
+  </ion-side-menus>
+</ion-view>

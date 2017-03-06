@@ -1,0 +1,17 @@
+.item-avatar >img:first-child {
+  border-radius: 0;
+}
+
+.item-avatar .item-content>img:first-child {
+  border-radius: 0;
+}
+
+.checkbox-avatar {
+  float: left;
+  top: 16px;
+  margin-right: 16px;
+  max-width: 40px;
+  max-height: 40px;
+  width: 100%;
+  height: 100%;
+}

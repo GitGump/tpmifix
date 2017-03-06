@@ -1,0 +1,34 @@
+<ion-view view-title="{{'BATTERY.TITLE' | translate}}">
+  <ion-content class="gray-bg padding-top" scroll="true">
+    <div class="battery row">
+      <div class="col col-50 border-right-2">
+        <img class="battery-pic center-block" ng-src="{{data.local.images.batteryPic}}">
+      </div>
+      <div class="col col-50 text-center pt50">
+        <h1>{{data.server.battery.voltage + "%"}}</h1>
+      </div>
+    </div>
+    <ion-toggle ng-model="data.local.saveModeSwitch" ng-click="action.switchOn()" toggle-class="toggle-positive"
+    class="mt20">
+      <span translate="BATTERY.CONTENT.BATTERY_SAVE_MODE"></span>
+    </ion-toggle>
+    <ion-item ng-if="data.local.saveModeSwitch" ng-click="tpService.linkService.gotoMod('battery-sleepTime')"
+    class="item-icon-right">
+      <span translate="BATTERY.CONTENT.WIFI_SLEEP_TIME"></span>
+      <span class="item-note">{{data.local.autoDisableTime.name | translate}}</span>
+      <i class="icon ion-chevron-right"></i>
+    </ion-item>
+  </ion-content>
+</ion-view>
+
+<script id="mod-battery-sleepTime.html" type="text/ng-template">
+  <ion-view view-title="{{'BATTERY-SLEEP_TIME.TITLE' | translate}}">
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ion-radio ng-click="action.submit(autoDisableTime)" ng-model="data.local.autoDisableTime"
+      ng-value="autoDisableTime" ng-checked="autoDisableTime.type === $index" ng-repeat="autoDisableTime in data.local.autoDisableTimes">
+        <span translate="{{autoDisableTime.name}}"></span>
+      </ion-radio>
+      <span class="list-info" translate="BATTERY-SLEEP_TIME.CONTENT.SLEEP_DESCRIPTION"></span>
+    </ion-content>
+  </ion-view>
+</script>

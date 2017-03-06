@@ -1,0 +1,35 @@
+<ion-view view-title="{{'PLAYER.TITLE' | translate}}">
+  <ion-content class="gray-bg" scroll="true">
+    <div class="videogular-container">
+      <videogular vg-player-ready="player.action.onPlayerReady($API)" vg-complete="player.action.onCompleteVideo()"
+      vg-auto-play="player.data.local.config.autoPlay" vg-theme="player.data.local.config.theme">
+        <vg-media vg-src="player.data.local.config.sources">
+        </vg-media>
+        <vg-controls vg-autohide="player.data.local.config.plugins.controls.autohide" vg-autohide-time="player.data.local.config.plugins.controls.autohideTime">
+          <vg-play-pause-button></vg-play-pause-button>
+          <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+          <vg-scrub-bar>
+            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+          </vg-scrub-bar>
+          <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+          <vg-volume>
+            <vg-mute-button></vg-mute-button>
+            <vg-volume-bar></vg-volume-bar>
+          </vg-volume>
+          <vg-fullscreen-button></vg-fullscreen-button>
+        </vg-controls>
+        <vg-buffering></vg-buffering>
+        <vg-overlay-play></vg-overlay-play>
+        <!--<vg-poster vg-url="player.data.local.config.plugins.poster"></vg-poster>-->
+      </videogular>
+    </div>
+    <ion-list ng-if="player.data.local.list.length!=0">
+      <ion-item class="item item-divider">
+        <span translate="PLAYER.CONTENT.PLAYLIST"></span>
+      </ion-item>
+      <ion-item class="item" ng-repeat="item in player.data.local.list" ng-click="player.action.setVideo($index)">
+        <span ng-class="{true:'positive',false:''}[player.data.local.currentVideo==$index]">{{item.name}}</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

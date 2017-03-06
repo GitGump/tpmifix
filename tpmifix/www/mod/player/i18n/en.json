@@ -1,0 +1,14 @@
+{
+	"PLAYER": {
+		"TITLE": "Media player",
+		"DESCRIPTION": "One custom media player to play video, audio...",
+		"CONTENT": {
+			"PLAYLIST": "Playlist",
+			"NOT_SUPPORTED_MEDIA_TYPE": {
+				"VIDEO": "This video type is not supported currently.",
+				"AUDIO": "This audio type is not supported currently.",
+				"ANY": "This media type is not supported currently."
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"mod": "dataUsage",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "Data Usage Settings",
+			"description": "Data usage settings",
+			"icon": ""
+		},
+		"zh": {
+			"title": "流量设置",
+			"description": "流量设置",
+			"icon": ""
+		},
+		"location": "gridMenu"
+	}
+}

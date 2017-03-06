@@ -1,0 +1,17 @@
+{
+	"mod": "test",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "Test",
+			"description": "I'am the test mod",
+			"icon": "icon ion-happy"
+		},
+		"zh": {
+			"title": "测试页面",
+			"description": "我是测试模块",
+			"icon": "icon ion-happy"
+		},
+		"location": "sideMenu"
+	}
+}

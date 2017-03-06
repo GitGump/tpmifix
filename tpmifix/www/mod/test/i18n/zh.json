@@ -1,0 +1,57 @@
+{
+	"TEST": {
+		"TITLE": "测试页面",
+		"DESCRIPTION": "我是一个测试页面/模块",
+		"CONTENT": {
+			"TEST": "这是测试主页！",
+			"INPUT": "新的App版本号",
+			"CHANGE_LANGUAGE": "测试语言切换",
+			"TEST_LOADING": "测试Loading控件",
+			"ORIGIN_VER": "原始App版本是",
+			"TEMP_VER": "临时App版本是",
+			"CHANGE_VERSION": "修改",
+			"RECOVER_VERSION": "恢复",
+			"GO_TEST_DETAIL": "测试详情页面（内部模板）",
+			"GO_TEST_MODAL": "测试modal弹出方式",
+			"GO_TEST_STYLE": "测试ionic控件样式页面（外部模板）",
+			"GO_TEST_FTP": "测试Ftp插件",
+			"GO_MEDIA_PLAYER": "测试多媒体播放器",
+			"GO_SETUP_WIZARD": "测试设置向导页面",
+			"GO_SETUP_WIZARD_PROMPT": "如果想在iOS上中断设置向导页面的测试，可手动杀死App。",
+			"GO_HOME": "返回主页"
+		}
+	},
+	"TEST-DETAIL": {
+		"TITLE": "测试详情页面",
+		"DESCRIPTION": "我是测试详情页面，测试页面的子页面。",
+		"CONTENT": {
+			"TEST": "伟大的“路由”将你带到了测试详情页面！以后就这么写嵌套子页面了。下面的控件和主测试页面一样（变量名也一样），但你看两者相互影响吗？",
+			"INPUT": "你输入的是:",
+			"SUBMIT": "提交",
+			"GO_TEST": "回到测试主页面"
+		}
+	},
+	"TEST-FTP": {
+		"TITLE": "测试Ftp插件",
+		"DESCRIPTION": "用于测试Cordova Ftp插件",
+		"CONTENT": {
+			"PROMPT": "本测试需要真机环境，在console中可以查看更多log。请确保本地文件存在并有访问权限。如果你不清楚iOS的沙盒设计，就不知如何填写本地路径，此时建议在Android上做测试即可。",
+			"FTP_ADDRESS": "Ftp地址",
+			"FTP_USERNAME": "Ftp用户名",
+			"FTP_PASSWORD": "Ftp密码",
+			"FTP_HOME_PATH": "Ftp主目录",
+			"REMOTE_PATH": "远程目录",
+			"REMOTE_FILE": "远程文件",
+			"LOCAL_PATH": "本地目录",
+			"LOCAL_FILE": "本地文件",
+			"START": "开始测试"
+		}
+	},
+	"TEST-STYLE": {
+		"TITLE": "测试ionic控件样式",
+		"DESCRIPTION": "本页用于测试ionic控件样式",
+		"CONTENT": {
+			"TEST": "下面展示ionic提供的部分控件样式。"
+		}
+	}
+}

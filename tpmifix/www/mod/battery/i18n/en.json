@@ -1,0 +1,22 @@
+{
+	"BATTERY": {
+		"TITLE": "Battery",
+		"DESCRIPTION": "Battery settings",
+		"CONTENT": {
+			"BATTERY_SAVE_MODE": "Power saving mode",
+			"WIFI_SLEEP_TIME": "Auto-disable Wi-Fi time",
+			"SLEEP_TIME_5": "5 minutes",
+			"SLEEP_TIME_15": "15 minutes",
+			"SLEEP_TIME_30": "30 minutes",
+			"SLEEP_TIME_60": "60 minutes"
+		}
+	},
+	"BATTERY-SLEEP_TIME": {
+		"TITLE": "Auto-disable Wi-Fi Time",
+		"DESCRIPTION": "Auto-disable Wi-Fi time",
+		"CONTENT": {
+			"WIFI_SLEEP_TIME": "Auto-disable Wi-Fi time",
+			"SLEEP_DESCRIPTION": "Auto-disable Wi-Fi after idling for a specific time period. When the Wi-Fi is disabled, you can press the power button to turn the Wi-Fi on again."
+		}
+	}
+}

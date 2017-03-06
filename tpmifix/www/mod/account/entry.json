@@ -1,0 +1,17 @@
+{
+	"mod": "account",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "Login Account",
+			"description": "Login Account page",
+			"icon": "account.png"
+		},
+		"zh": {
+			"title": "账号管理",
+			"description": "账户管理页面",
+			"icon": "account.png"
+		},
+		"location": "sideMenu"
+	}
+}

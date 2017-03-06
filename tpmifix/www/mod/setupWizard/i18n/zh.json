@@ -1,0 +1,53 @@
+{
+	"SETUP_WIZARD": {
+		"TITLE": "设置向导",
+		"DESCRIPTION": "设置登录密码和无线网络",
+		"CONTENT": {
+			"TIPS": {
+				"HEADER": "即将进入设置向导，完成设置后即可开始使用路由器。"
+			},
+			"BTN": {
+				"BEGIN": "开始设置",
+				"BACK": "上一步",
+				"NEXT": "下一步",
+				"END": "完成设置"
+			}
+		}
+	},
+	"SETUP_WIZARD_LOGIN": {
+		"TITLE": "设置登录密码",
+		"DESCRIPTION": "登录密码设置",
+		"CONTENT": {
+			"TIPS": {
+				"HEADER": "设置您的登录密码",
+				"INFO": "请妥善保管登录密码，若忘记请将路由器恢复出厂设置，并设置新的密码。"
+			},
+			"PASSWORD": "密码",
+			"PASSWORD_HINT": "请设置登录密码"
+		}
+	},
+	"SETUP_WIZARD_WIFI": {
+		"TITLE": "设置无线网络",
+		"DESCRIPTION": "无线网络设置",
+		"CONTENT": {
+			"TIPS": {
+				"HEADER": "设置您的无线网络",
+				"INFO": "请输入无线网络名字和密码，方便您的电脑、手机等设备连接。"
+			}
+		}
+	},
+	"SETUP_WIZARD_END": {
+		"TITLE": "完成设置",
+		"DESCRIPTION": "设置信息",
+		"CONTENT": {
+			"TIPS": {
+				"HEADER": "请核对设置信息，确认无误后即可完成设置。",
+				"END": "设置成功。连接可能会断开，请重新连接到路由器。"
+			},
+			"LOGIN_PASSWORD": "登录密码",
+			"WIFI_NAME": "无线名字",
+			"WIFI_PASSWORD": "无线密码",
+			"WIFI_BAND": "无线频段"
+		}
+	}
+}

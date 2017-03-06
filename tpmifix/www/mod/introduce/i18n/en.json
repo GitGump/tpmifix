@@ -1,0 +1,15 @@
+{
+	"INTRODUCE": {
+		"TITLE": "Introduce pages",
+		"DESCRIPTION": "Introduce pages will show up when user open the App firstly",
+		"CONTENT": {
+			"P1_LABEL_1": "Data Usage",
+			"P1_LABEL_2": "Track data usage by month and monitor battery level in real time.",
+			"P2_LABEL_1": "Access Control",
+			"P2_LABEL_2": "Clearly view the connected devices and easily block the freeloaders.",
+			"P3_LABEL_1": "Quick Sharing",
+			"P3_LABEL_2": "Share music, videos, pictures and others on the move.",
+			"P3_BUTTON": "Get Started"
+		}
+	}
+}

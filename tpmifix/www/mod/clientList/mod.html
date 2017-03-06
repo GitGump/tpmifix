@@ -1,0 +1,148 @@
+<ion-view view-title="{{'CLIENT_LIST.TITLE' | translate}}">
+  <ion-content class="gray-bg padding-top" scroll="true">
+    <ion-list>
+      <ion-item ng-click="tpService.linkService.gotoMod('clientList-whiteList')" class="item-icon-right">
+        <span translate="CLIENT_LIST.CONTENT.WHITE_LIST"></span>
+        <span class="item-note">{{data.local.whiteListState.name | translate}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+    </ion-list>
+    <span class="list-title" translate="CLIENT_LIST.CONTENT.MY_DEVICE"></span>
+    <ion-list>
+      <ion-item class="item-avatar">
+        <img ng-src="{{data.local.images.clientList_device_connected}}">
+        <h2 class="assertive">{{data.local.myDevice.name}}</h2>
+        <p>{{data.local.myDevice.mac.toUpperCase()}}</p>
+      </ion-item>
+    </ion-list>
+    <span class="list-title" translate="CLIENT_LIST.CONTENT.CONN_DEVICE"></span>
+    <ion-list ng-if="data.local.connDevices.length !== 0">
+      <ion-item ng-repeat="connDevice in data.local.connDevices | orderBy:'name'" class="item-avatar">
+        <img ng-src="{{data.local.images.clientList_device_connected}}">
+        <h2>{{connDevice.name}}</h2>
+        <p>{{connDevice.mac.toUpperCase()}}</p>
+      </ion-item>
+    </ion-list>
+    <span ng-if="data.local.connDevices.length === 0" class="list-info text-center"
+    translate="CLIENT_LIST.CONTENT.NO_CONN_DEVICE"></span>
+  </ion-content>
+</ion-view>
+
+<script id="mod-clientList-whiteList.html" type="text/ng-template">
+  <ion-view view-title="{{'CLIENT_LIST-WHITE_LIST.TITLE' | translate}}">
+    <ion-nav-buttons side="right">
+      <button ng-if="data.local.enable" ng-click="action.addDevice($event)" class="button button-icon">
+        <i class="icon ion-android-add"></i>
+      </button>
+    </ion-nav-buttons>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ion-list>
+        <ion-toggle ng-model="data.local.enable" ng-click="action.enable()" toggle-class="toggle-positive">
+          <span translate="CLIENT_LIST-WHITE_LIST.CONTENT.WHITE_LIST_MODE"></span>
+        </ion-toggle>
+      </ion-list>
+      <span ng-if="data.local.enable" class="list-title" translate="CLIENT_LIST-WHITE_LIST.CONTENT.WHITE_LIST_DEVICE"></span>
+      <ion-list ng-if="data.local.enable && data.local.allowList.length !== 0" can-swipe="true">
+        <ion-item ng-repeat="whiteListDevice in data.local.allowList | orderBy: ['deviceState.type', 'description']"
+        class="item-avatar">
+          <img ng-if="whiteListDevice.deviceState.type === 0" ng-src="{{data.local.images.clientList_device_connected}}">
+          <img ng-if="whiteListDevice.deviceState.type !== 0" ng-src="{{data.local.images.clientList_device_normal}}">
+          <h2 ng-class="{true: 'assertive', false: ''}[whiteListDevice.mac.toUpperCase() === data.local.myDevice.mac.toUpperCase()]">{{whiteListDevice.description + ' '+ (whiteListDevice.deviceState.name | translate)}}</h2>
+          <p>{{whiteListDevice.mac.toUpperCase()}}</p>
+          <ion-option-button class="button-assertive" ng-click="action.deleteDevice(whiteListDevice)">
+            <span translate="COMMON.CONTENT.DELETE"></span>
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
+      <span ng-if="data.local.enable && data.local.allowList.length === 0" translate="CLIENT_LIST-WHITE_LIST.CONTENT.NO_WHITE_LIST_DEVICE"
+      class="list-info text-center"></span>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-clientList-popover.html" type="text/ng-template">
+  <ion-popover-view>
+    <ion-content scroll="false">
+      <ion-item ng-click="action.gotoAddDevice()">
+        <span translate="CLIENT_LIST-WHITE_LIST.CONTENT.ADD_MANUAL"></span>
+      </ion-item>
+      <ion-item ng-click="action.gotoListDevice()">
+        <span translate="CLIENT_LIST-WHITE_LIST.CONTENT.ADD_CONN_DEVICES"></span>
+      </ion-item>
+    </ion-content>
+  </ion-popover-view>
+</script>
+
+<script id="mod-clientList-renameDevice.html" type="text/ng-template">
+  <ion-view view-title="{{'CLIENT_LIST-RENAME_DEVICE.TITLE' | translate}}">
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ion-item ng-click="action.rename()" class="item-icon-right">
+        <span translate="CLIENT_LIST-RENAME_DEVICE.CONTENT.RENAME"></span>
+        <span class="item-note">{{data.local.renameDevice.description}}</span>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-clientList-listDevice.html" type="text/ng-template">
+  <ion-view view-title="{{'CLIENT_LIST-LIST_DEVICE.TITLE' | translate}}">
+    <ion-content class="gray-bg" scroll="true">
+      <span class="list-title" translate="CLIENT_LIST-LIST_DEVICE.CONTENT.LIST_DEVICE"></span>
+      <ion-list ng-if="data.local.connDevices.length !== 0">
+        <ion-item ng-repeat="connDevice in data.local.connDevices | orderBy: 'name'" class="item-avatar item-icon-right">
+          <img ng-src="{{data.local.images.clientList_device_normal}}">
+          <h2 class="w-80">{{connDevice.name}}</h2>
+          <p>{{connDevice.mac.toUpperCase()}}</p>
+          <i ng-click="!connDevice.isAdded && action.addDevice(connDevice)" class="icon">
+<button ng-show="!connDevice.isAdded" class="button button-outline"><span class="darker" translate="COMMON.CONTENT.ADD"></span></button>
+<span ng-show="connDevice.isAdded" class="button button-clear" translate="CLIENT_LIST-LIST_DEVICE.CONTENT.ADDED"></span>
+</i>
+        </ion-item>
+      </ion-list>
+      <span ng-if="data.local.connDevices.length === 0" translate="CLIENT_LIST-LIST_DEVICE.CONTENT.NO_LIST_DEVICE"
+      class="list-info text-center"></span>
+    </ion-content>
+  </ion-view>
+</script>
+
+<script id="mod-clientList-addDevice.html" type="text/ng-template">
+  <ion-view view-title="{{'CLIENT_LIST-ADD_DEVICE.TITLE' | translate}}">
+    <ion-nav-buttons side="right">
+      <button ng-disabled="clientList.form.$invalid" ng-click="action.submit()" translate="COMMON.CONTENT.SAVE"
+      class="button button-icon"></button>
+    </ion-nav-buttons>
+    <ion-content class="gray-bg padding-top" scroll="true">
+      <ng-form name="clientList.form" novalidate>
+        <ion-list>
+          <ion-item class="item-input">
+            <span class="input-label" translate="CLIENT_LIST-ADD_DEVICE.CONTENT.DEVICE_NAME"></span>
+            <input ng-model="data.local.addDeviceInfo.description" name="description" type="text"
+            maxlength="64" placeholder="{{'CLIENT_LIST-ADD_DEVICE.CONTENT.ENTER_DEVICE_NAME' | translate}}"
+            required></input>
+          </ion-item>
+          <div ng-show="clientList.form.description.$dirty" ng-messages="clientList.form.description.$error">
+            <div ng-message="required">
+              <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+            </div>
+          </div>
+          <ion-item class="item-input">
+            <span class="input-label" translate="CLIENT_LIST-ADD_DEVICE.CONTENT.DEVICE_MAC"></span>
+            <input ng-model="data.local.addDeviceInfo.mac" name="mac" type="text" maxlength="17"
+            placeholder="{{'CLIENT_LIST-ADD_DEVICE.CONTENT.ENTER_MAC' | translate}}"
+            required check-wlan-mac></input>
+          </ion-item>
+          <div ng-show="clientList.form.mac.$dirty" ng-messages="clientList.form.mac.$error">
+            <div ng-message="required">
+              <span class="item-alert" translate="COMMON.CONTENT.REQUIRED"></span>
+            </div>
+            <div ng-message="checkWlanMAC">
+              <span class="item-alert" translate="CLIENT_LIST-ADD_DEVICE.CONTENT.MAC_ERROR"></span>
+            </div>
+          </div>
+        </ion-list>
+        <span class="list-info" translate="CLIENT_LIST-ADD_DEVICE.CONTENT.FIND_MAC_HINT"></span>
+      </ng-form>
+    </ion-content>
+  </ion-view>
+</script>

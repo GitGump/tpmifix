@@ -1,0 +1,168 @@
+.home-bg {
+  background-color: #387ef5;
+  background-image: linear-gradient(to bottom, #0b73c1 0, #11bcf8 100%);
+  background-image: -webkit-linear-gradient(top, #0b73c1 0, #11bcf8 100%);
+  background-repeat: repeat-x;
+  background-size: 100% 100%;
+}
+
+.item-icon {
+  display: flex;
+  box-align: center;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 16px;
+  margin-top: -3px;
+}
+
+.mt-5 {
+  margin-top: -5px;
+}
+
+.portrait .home-list {
+  height: 50%;
+  width: 100%;
+  float: left;
+}
+
+.portrait .home-grid {
+  height: 50%;
+  width: 100%;
+  float: left;
+}
+
+.landscape .home-list {
+  height: 100%;
+  width: 50%;
+  float: left;
+}
+
+.landscape .home-grid {
+  height: 100%;
+  width: 50%;
+  float: right;
+  padding-top: 10px;
+}
+
+.home-network {
+  height: 20%;
+  width: 100%;
+  padding-top: 12px;
+}
+
+.home-flowstat {
+  height: 80%;
+  width: 100%;
+}
+
+.portrait .home-list .home-flowstat {
+  margin-top: 16px;
+}
+
+.landscape .home-list .home-flowstat {
+  margin-top: -8px;
+}
+
+.home-network-signal {
+  height: 30px;
+  width: auto;
+  padding-top: 5px;
+  margin-bottom: -5px;
+}
+
+.home-network-connect {
+  height: 30px;
+  width: auto;
+  padding-top: 5px;
+  margin-bottom: -7px;
+  margin-left: 5px;
+}
+
+.home-grid-member {
+  height: 50%;
+  width: 50%;
+  float: left;
+  margin-bottom: -50px;
+  padding-top: 40px;
+}
+
+.home-grid-member.home-grid-member-left {
+  padding-left: 20px;
+  padding-right: 5px;
+}
+
+.portrait .home-grid .home-grid-member.home-grid-member-left {
+}
+
+.landscape .home-grid .home-grid-member.home-grid-member-left {
+  margin-left: -20px;
+}
+
+.home-grid-member.home-grid-member-right {
+  /*margin-left: -5px;*/
+}
+
+.portrait .home-grid .home-grid-member.home-grid-member-right {
+  margin-left: -5px;
+}
+
+.landscape .home-grid .home-grid-member.home-grid-member-right {
+  margin-left: 10px;
+}
+
+.home-grid-member-icon {
+  width: 33%;
+  text-align: right;
+  float: left;
+}
+
+.home-grid-member-icon-img {
+  width: 48px;
+  height: auto;
+}
+
+.home-grid-member-content {
+  width: 66%;
+  margin-top: 8px;
+  float: left;
+}
+
+.portrait .home-grid .home-grid-member.home-grid-member-left .home-grid-member-content {
+  padding-left: 10px;
+}
+
+.landscape .home-grid .home-grid-member.home-grid-member-left .home-grid-member-content {
+  padding-left: 15px;
+}
+
+.portrait .home-grid .home-grid-member.home-grid-member-right .home-grid-member-content {
+  padding-left: 10px;
+}
+
+.landscape .home-grid .home-grid-member.home-grid-member-right .home-grid-member-content {
+  padding-left: 10px;
+}
+
+.home-grid-member-title {
+  font-size: 16px;
+  /*font-weight: bold;*/
+}
+
+.home-grid-member-detail {
+  font-size: 13px;
+  color: #D3D3D3;
+}
+
+.bar .button .icon.ion-record:before {
+  font-size: 14px;
+  margin-top: -5px;
+  margin-left: -12px;
+}
+
+ion-side-menu .item-icon-left .icon.ion-record:before {
+  font-size: 12px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  z-index: 1;
+}

@@ -1,0 +1,22 @@
+{
+	"BATTERY": {
+		"TITLE": "电量",
+		"DESCRIPTION": "电池电量管理",
+		"CONTENT": {
+			"BATTERY_SAVE_MODE": "省电模式",
+			"WIFI_SLEEP_TIME": "无线闲置休眠",
+			"SLEEP_TIME_5": "5 分钟",
+			"SLEEP_TIME_15": "15 分钟",
+			"SLEEP_TIME_30": "30 分钟",
+			"SLEEP_TIME_60": "60 分钟"
+		}
+	},
+	"BATTERY-SLEEP_TIME": {
+		"TITLE": "无线闲置休眠",
+		"DESCRIPTION": "无线闲置休眠",
+		"CONTENT": {
+			"WIFI_SLEEP_TIME": "Auto-disable Wi-Fi time",
+			"SLEEP_DESCRIPTION": "若在指定时间内没有设备连接路由器的Wi-Fi，Wi-Fi将会自动关闭。此时，可按动路由器的电源键来唤醒Wi-Fi。"
+		}
+	}
+}

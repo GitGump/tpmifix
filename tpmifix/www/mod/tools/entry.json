@@ -1,0 +1,17 @@
+{
+	"mod": "tools",
+	"ver": "0.0.1",
+	"entry": {
+		"en": {
+			"title": "System Tools",
+			"description": "Reboot, poweroff, restore",
+			"icon": "tools.png"
+		},
+		"zh": {
+			"title": "系统工具",
+			"description": "重启，关机，恢复出厂设置",
+			"icon": "tools.png"
+		},
+		"location": "sideMenu"
+	}
+}

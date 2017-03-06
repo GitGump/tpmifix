@@ -1,0 +1,23 @@
+{
+	"LOGIN": {
+		"TITLE": "Login",
+		"DESCRIPTION": "Login page",
+		"CONTENT": {
+			"PASSWORD": "Password",
+			"PASSWORD_HINT": "Enter the password.",
+			"FORGET_PASSWORD": "Forget password?",
+			"FORGET_PASSWORD_PROMPT": "If forgot login password, please reset the router to restore the factory settings.",
+			"INCORRECT_PASSWORD": "Incorrect password.",
+			"INVALID_PASSWORD": "Password must be 6 to 15 characters long, including letters, numbers, dashes and underlines.",
+			"LOGIN": "Login",
+			"LOGIN_OK": "Login successfully",
+			"LOGIN_FAIL": "Failed to login, please try again later.",
+			"INCORRECT_PASSWORD_WITH_REMAIN_ATTEMPTS": "Incorrect password, and only {{remainAttempts}} login attempts left.",
+			"LOGIN_LOCKED": "Unsuccessful login attempts has reached {{totalAttempts}} times, please try again {{loginDisabledRemainTime}} later.",
+			"SET_PASSWORD": "Set password",
+			"SET_PASSWORD_OK": "Set password successfully",
+			"SET_PASSWORD_FAIL": "Fail to set password, please try again later",
+			"SET_PASSWORD_AT_FIRST": "Please set the login password of your router before using this App."
+		}
+	}
+}

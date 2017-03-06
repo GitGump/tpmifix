@@ -1,0 +1,24 @@
+<ion-view view-title="{{'ABOUT.TITLE' | translate}}">
+  <ion-content class="gray-bg padding-top" scroll="true">
+    <div class="logo">
+      <img class="img-responsive" ng-src="{{data.local.images.logo}}">
+      <span class="show text-center padding-top">{{ tpProtocol.protocolConstant.APP.NAME + ' ' + tpProtocol.protocolConstant.APP.VER }}</span>
+    </div>
+    <ion-list class="show">
+      <ion-item ng-click="action.update()">
+        <span class="primary" translate="ABOUT.CONTENT.CHECK_UPDATE"></span>
+        <span ng-show="data.local.hasNewVer" class="item-note assertive" translate="ABOUT.CONTENT.HAS_NEW_VERSION"></span>
+      </ion-item>
+      <ion-item ng-click="tpService.linkService.gotoMod('introduce')">
+        <span class="primary" translate="ABOUT.CONTENT.INTRODUCTION"></span>
+      </ion-item>
+      <ion-toggle ng-model="data.local.noticeOn" ng-click="action.notice()" toggle-class="toggle-positive">
+        <span translate="ABOUT.CONTENT.NOTIFICATION"></span>
+      </ion-toggle>
+    </ion-list>
+  </ion-content>
+  <div class="copyright">
+    <button class="button button-clear button-full button-positive" ng-click="action.openCompanyUrl()">{{data.local.companyHomepage}}</button>
+    <p translate="ABOUT.CONTENT.COPYRIGHT"></p>
+  </div>
+</ion-view>

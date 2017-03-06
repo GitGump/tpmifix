@@ -1,0 +1,14 @@
+{
+	"PLAYER": {
+		"TITLE": "多媒体播放器",
+		"DESCRIPTION": "一款多媒体播放器，支持视频、音频等格式。",
+		"CONTENT": {
+			"PLAYLIST": "播放列表",
+			"NOT_SUPPORTED_MEDIA_TYPE": {
+				"VIDEO": "当前不支持该视频格式。",
+				"AUDIO": "当前不支持该音频格式。",
+				"ANY": "当前不支持该媒体格式。"
+			}
+		}
+	}
+}
